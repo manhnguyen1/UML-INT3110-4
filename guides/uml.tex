@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[top=30mm,right=30mm, left=30mm, bottom=30mm]{geometry}
+\usepackage[top=30mm, right=30mm, left=30mm, bottom=30mm]{geometry}
 \usepackage[utf8]{vietnam}
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -84,7 +84,7 @@
 
   \subsection{Sơ đồ tuần tự}
 
-  \paragraph{\textnormal{Sơ đồ tuần tự (sequence diagram) được sử dụng để mô tả các thao tác được thực hiện trong một use case -- cụ thể là các object tương tác với nhau như thế nào.}}
+  \paragraph{\textnormal{Sơ đồ tuần tự (sequence diagram) được sử dụng để mô tả các thao tác được thực hiện trong một use case -- cụ thể là các object tương tác với nhau như thế nào, gọi tới những phương thức nào.}}
 
   \paragraph{\textnormal{Các bước của quá trình tương tác rất tiên theo dõi vì chúng được đặt theo thứ tự từ trái sang phải, từ trên xuống dưới và còn được đánh số, sử dụng các mũi tên.}}
 
@@ -104,7 +104,7 @@
     \item \textit{Đường nét đứt thẳng}: đường sống (life line).
     \item \textit{Hình chữ nhật dài trên đường sống}: thời gian hoạt động của object hoặc tác nhân đó.
     \item \textit{Mũi tên nét liền}: gọi phương thức của object được trỏ đến.
-    \item \textit{Mũi tên nét liền}: kết quả trả về.
+    \item \textit{Mũi tên nét đứt}: kết quả trả về.
   \end{itemize}
 
   \paragraph{\textnormal{Có thể thấy rằng thứ tự được gọi của các phương thức được thể hiện qua cách đánh số và cách sắp xếp từ trái sang phải, từ trên xuống dưới.
@@ -131,15 +131,159 @@
 
   \subsection{Sơ đồ hoạt động}
 
+  \paragraph{\textnormal{
+    Sơ đồ hoạt động(activity diagram) khá giống với sơ đồ luồng, sơ đồ khối (flowchart). Nếu như sơ đồ tuần tự và sơ đồ giao tiếp thể hiện các object và lời gọi các phương thức thì ở sơ đồ hoạt động, quá trình đó được thể hiện chi tiết hơn -- có thể hiểu là sơ đồ này sẽ trình bày cả những điều được thực hiện bên trong phương thức.
+  }}
+
+  \paragraph{\textnormal{
+    Sơ đồ hoạt động luôn bắt đầu bằng một node bắt đầu (một hình tròn đen) và đích đến là node kết thúc (hình tròn đen có viền). Một sơ đồ hoạt động luôn có đúng một node bắt đầu nhưng có thể có nhiều node kết thúc (tương ứng với nhiều tình huống khác nhau).
+  }}
+
+  \paragraph{\textnormal{
+    Các bước của một quá trình được thể hiện trong sơ đồ hoạt động bằng các hình chữ nhật có bo tròn góc. Các mũi tên sẽ trỏ luồng hoạt động. Cũng giống như trong sơ đồ khối, sơ đồ hoạt động cũng có thể thể hiện cấu trúc rẽ nhánh (bằng node quyết định hình thoi) và cấu trúc lặp.
+  }}
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/diagrams/activity/activity-diagram-1.jpg}
+    \caption{Sơ đồ hoạt động}
+  \end{figure}
+
   \subsection{Sơ đồ máy trạng thái}
+
+  \paragraph{\textnormal{
+    Trong lập trình hướng đối tượng, một đối tượng có hai đặc tính: thứ nhất là thuộc tính(property or attribute), thứ hai là phương thức(method or operation). Trong đó, thuộc tính cũng chính là \textit{trạng thái} của đối tượng.
+  }}
+  \paragraph{\textnormal{
+    Sơ đồ máy trạng thái(state machine diagram) chỉ ra trạng thái của hệ thống và những sự kiện, phương thức có thể kích hoạt sự thay đổi của những thuộc tính đó.
+  }}
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/diagrams/statemachine/state-machine-diagram-1.jpg}
+    \caption{Minh họa sơ đồ máy trạng thái cho hệ thống điện thoại}
+  \end{figure}
 
   \subsection{Sơ đồ quan hệ thực thể}
 
+  \paragraph{\textnormal{
+    Sơ đồ quan hệ thực thể(entity relationship diagram) thể hiện mối quan hệ giữa các thực thể được lưu trữ trong một cơ sở dữ liệu. Thực thể trong ngữ cảnh này chính là những object. Một tập thực thể là một bộ các thực thể cùng loại. Các thực thể có thể có một hoặc nhiều thuộc tính.
+  }}
+
+  \paragraph{\textnormal{
+    Mối quan hệ trong sơ đồ quan hệ thực thể có thể thuộc một trong các loại sau, còn được gọi là những bội số. Bội số nếu có thể nhận giá trị $0$ được gọi là \textit{optional}(tùy chọn), ngược lại được gọi là \textit{mandatory}(bắt buộc).
+  }}
+
+  \begin{itemize}
+    \item \textbf{1 -- 1}. Quan hệ một -- một, được thể hiện bằng đường nối:
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1to1.PNG}
+      \caption{1 -- 1}
+    \end{figure}
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-mandatory-to-1-optional.PNG}
+      \caption{1 -- 0\ldots 1}
+    \end{figure}
+    \item \textbf{1 -- n}. Quan hệ một -- nhiều:
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-optional-to-Many-optional.PNG}
+      \caption{0..1 -- 0..n}
+    \end{figure}
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-mandatory-to-Many-optional.PNG}
+      \caption{1 -- 0..n}
+    \end{figure}
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-optional-to-Many-mandatory.PNG}
+      \caption{0..1 -- n}
+    \end{figure}
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-optional-to-Many-mandatory.PNG}
+      \caption{1 -- n}
+    \end{figure}
+    \item \textbf{n -- n}. Quan hệ nhiều -- nhiều:
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/Many-mandatory-to-Many-mandatory.PNG}
+      \caption{n -- n}
+    \end{figure}
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/Many-optional-to-Many-mandatory.PNG}
+      \caption{0..n -- n}
+    \end{figure}
+    \begin{figure}[!ht]
+      \centering
+      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/Many-optional-to-Many-optional.PNG}
+      \caption{0..n -- 0..n}
+    \end{figure}
+  \end{itemize}
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.5]{../pictures/diagrams/entityrelationship/entity-relationship-diagram-1.jpg}
+    \caption{Ví dụ sơ đồ quan hệ thực thể cho cơ sở dữ liệu lưu trữ điểm của sinh viên}
+  \end{figure}
+
   \subsection{Sơ đồ gói}
+
+  \paragraph{\textnormal{
+    Một tính chất khác của lập trình hướng đối tượng là tính đóng gói. Có hai khía cạnh của tính đóng gói: thứ nhất là sự giới hạn truy cập một thuộc tính, phương thức của đối tượng; thứ hai là sự nhóm họp của các class có cùng chức năng. Khía cạnh thứ nhất đã được thể hiện trong \textit{sơ đồ lớp}, còn khía cạnh thứ hai được thể hiện trong sơ đồ gói(package diagram)
+  }}
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.5]{../pictures/diagrams/package/package-diagram-1.jpg}
+    \caption{Sơ đồ gói}
+  \end{figure}
+
+  \paragraph{\textnormal{
+    Giải thích các ký hiệu:
+  }}
+
+  \begin{itemize}
+    \item \textit{Hình tập tài liệu}: đại diện cho một package, các package có thể rời nhau hoặc package này chứa một hay nhiều package con.
+    \item \textit{Mũi tên nét đứt}: quan hệ phụ thuộc, package ở gốc mũi tên phụ thuộc vào package ở ngọn mũi tên.
+  \end{itemize}
+
+  \paragraph{\textnormal{
+    Ngoài ra trong các package trên sơ đồ gói có thể biểu diễn thêm các class, interface bên trong.
+  }}
 
   \subsection{Sơ đồ triển khai}
 
-\section{Các giai đoạn}
+  \paragraph{\textnormal{
+    Sơ đồ triển khai (deployment diagram) được sử dụng để mô tả sự bố trí các \textit{thành phần thực thi}.
+  }}
+
+  \paragraph{\textnormal{
+    Các thành phần đó có thể là phần cứng(nút cứng, các thiết bị vật lý, \ldots) hoặc phần mềm(nút mềm, các file thực thi, server, \ldots). Các nút trong một sơ đồ triển khai được kết nối với nhau.
+  }}
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.5]{../pictures/diagrams/deployment/deployment-diagram-1.jpg}
+    \caption{Sơ đồ triển khai}
+  \end{figure}
+
+  \paragraph{\textnormal{
+    Giải thích các ký hiệu:
+  }}
+  \begin{itemize}
+    \item \textit{Hình hộp}: một nút.
+    \item \textit{Các stereotype}: các thành phần trong một nút.
+    \item \textit{Hình tròn}: giao diện(interface).
+    \item \textit{Mũi tên nét đứt}: thể hiện việc sử dụng, cài đặt giao diện.
+  \end{itemize}
+
+\section{Các giai đoạn trong phân tích thiết kế}
+
   \subsection{Phân tích yêu cầu}
 
   \subsection{Đặc tả yêu cầu}
