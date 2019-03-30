@@ -12,10 +12,10 @@ Nhóm thực hiện bài tập lớn này gồm ba thành viên:
 
 Yêu cầu cho bài tập lớn là chọn một hệ thống để thực hiện việc *phân tích và thiết kế*. Ở đây, hệ thống được chọn là hệ thống *Đăng ký môn học*.
 
-Trong *repository* này không có `code` mà thay vào đó là văn bản. Các tác giả sẽ trình bày những công đoạn trong việc phân tích thiết kế hệ thống đăng ký môn học, biểu diễn bằng văn bản và các sơ đồ **UML**.
+Trong *repository* này không có `code` mà thay vào đó là tài liệu. Các tác giả sẽ trình bày những công đoạn trong việc phân tích thiết kế hệ thống đăng ký môn học, biểu diễn bằng văn bản và các sơ đồ **UML**.
 
 ## Hướng dẫn đọc tài liệu
 
-Nếu bạn đọc chưa quen với việc phân tích thiết kế, hãy đọc file [UML](./guides/uml.pdf) để biết việc phân tích thiết kế gồm các giai đoạn nào và mỗi giai đoạn sẽ làm những công việc gì.
+Nếu bạn đọc chưa quen với việc phân tích thiết kế, hãy đọc file [UML](./guides/uml.pdf) để biết việc phân tích thiết kế gồm các giai đoạn nào và mỗi giai đoạn sẽ làm những công việc gì, sử dụng những sơ đồ **UML** như thế nào.
 
 Khi đã khá nắm được thì bạn đọc có thể xem quá trình phân tích thiết kế hệ thống đăng ký môn học ở [đây](./project/index.pdf) mà không gặp quá nhiều khó khăn.

@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{cases}
+\usepackage{multicol}
 
 \title{\textbf{Phân tích thiết kế hệ thống với UML}}
 \author{Ngô Quang Dương}
@@ -30,11 +31,13 @@
   
   \subsection{Sơ đồ ca sử dụng}
   
-  \paragraph{\textnormal{Thường được gọi nhiều hơn bằng cái tên \textit{sơ đồ use case}, sơ đồ này thể hiện các \textit{tác nhân} hệ thống (là những thành phần có tương tác với hệ thống nhưng không nằm trong hệ thống) và các \textit{chức năng} đối với từng tác nhân.}}
+  \paragraph{\textnormal{Thường được gọi nhiều hơn bằng cái tên \textit{sơ đồ use case}, sơ đồ này thể hiện các \textit{tác nhân} hệ thống (là những thành phần có tương tác với hệ thống nhưng không nằm trong hệ thống), các \textit{chức năng} đối với từng tác nhân và quan hệ giữa các tác nhân với ca sử dụng.}}
 
   \paragraph{\textnormal{Trong một \textit{sơ đồ use case} thông thường, các \textit{tác nhân} được biểu diễn bằng hình người que, còn các \textit{chức năng}(use case) được biểu diễn bằng hình elip với nội dung là tên của \textit{chức năng} đó.}}
 
-  Hãy xem qua ví dụ sau:
+  \paragraph{\textnormal{
+    Hãy xem qua ví dụ sau:
+  }}
 
   \begin{figure}[!ht]
     \centering
@@ -51,6 +54,16 @@
     \item \textit{Mũi tên nét đứt với label <<include>>}: thể  hiện rằng use case này(gốc mũi tên) chứa use case kia(ngọn mũi tên).
     \item \textit{Hình elip có extension point}: use case có điểm mở rộng - tức là khi use case đó được thực hiện thì có thể có những tình huống khác xảy ra - như trong sơ đồ trên thì việc đăng nhập có thể đúng hoặc sai, mỗi tình huống đó là một extension point.
     \item \textit{Mũi tên nét đứt với label <<extend>>}: thể hiện rằng use case này(gốc mũi tên) sẽ mở rộng use case kia(ngọn mũi tên), với điều kiện được trình bày trong extension point.
+  \end{itemize}
+
+  \paragraph{\textnormal{
+    Sơ đồ use case có ý nghĩa quan trọng và xuyên suốt quá trình phá triển phần mềm:
+  }}
+  \begin{itemize}
+    \item Mang lại cái nhìn tổng quan về hệ thống, những việc cần làm đối với developer.
+    \item Đối với người kiểm thử, sơ đồ use case giúp họ lập kế hoạch cho các tác vụ kiểm tra.
+    \item Người viết tài liệu cũng dựa trên sơ đồ use case để viết hướng dẫn sử dụng.
+    \item Người quản lý dự án sử dụng sơ đồ use case để lập kế hoạch
   \end{itemize}
 
   \subsection{Sơ đồ lớp}
@@ -178,49 +191,49 @@
     \item \textbf{1 -- 1}. Quan hệ một -- một, được thể hiện bằng đường nối:
     \begin{figure}[!ht]
       \centering
-      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1to1.PNG}
+      \includegraphics[scale=0.8]{../pictures/diagrams/entityrelationship/1to1.PNG}
       \caption{1 -- 1}
     \end{figure}
     \begin{figure}[!ht]
       \centering
-      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-mandatory-to-1-optional.PNG}
+      \includegraphics[scale=0.8]{../pictures/diagrams/entityrelationship/1-mandatory-to-1-optional.PNG}
       \caption{1 -- 0\ldots 1}
     \end{figure}
     \item \textbf{1 -- n}. Quan hệ một -- nhiều:
     \begin{figure}[!ht]
       \centering
-      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-optional-to-Many-optional.PNG}
+      \includegraphics[scale=0.8]{../pictures/diagrams/entityrelationship/1-optional-to-Many-optional.PNG}
       \caption{0..1 -- 0..n}
     \end{figure}
     \begin{figure}[!ht]
       \centering
-      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-mandatory-to-Many-optional.PNG}
+      \includegraphics[scale=0.8]{../pictures/diagrams/entityrelationship/1-mandatory-to-Many-optional.PNG}
       \caption{1 -- 0..n}
     \end{figure}
     \begin{figure}[!ht]
       \centering
-      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-optional-to-Many-mandatory.PNG}
+      \includegraphics[scale=0.8]{../pictures/diagrams/entityrelationship/1-optional-to-Many-mandatory.PNG}
       \caption{0..1 -- n}
     \end{figure}
     \begin{figure}[!ht]
       \centering
-      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/1-optional-to-Many-mandatory.PNG}
+      \includegraphics[scale=0.8]{../pictures/diagrams/entityrelationship/1-optional-to-Many-mandatory.PNG}
       \caption{1 -- n}
     \end{figure}
     \item \textbf{n -- n}. Quan hệ nhiều -- nhiều:
     \begin{figure}[!ht]
       \centering
-      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/Many-mandatory-to-Many-mandatory.PNG}
+      \includegraphics[scale=0.8]{../pictures/diagrams/entityrelationship/Many-mandatory-to-Many-mandatory.PNG}
       \caption{n -- n}
     \end{figure}
     \begin{figure}[!ht]
       \centering
-      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/Many-optional-to-Many-mandatory.PNG}
+      \includegraphics[scale=0.8]{../pictures/diagrams/entityrelationship/Many-optional-to-Many-mandatory.PNG}
       \caption{0..n -- n}
     \end{figure}
     \begin{figure}[!ht]
       \centering
-      \includegraphics[scale=1]{../pictures/diagrams/entityrelationship/Many-optional-to-Many-optional.PNG}
+      \includegraphics[scale=0.8]{../pictures/diagrams/entityrelationship/Many-optional-to-Many-optional.PNG}
       \caption{0..n -- 0..n}
     \end{figure}
   \end{itemize}
@@ -284,13 +297,164 @@
 
 \section{Các giai đoạn trong phân tích thiết kế}
 
-  \subsection{Phân tích yêu cầu}
+  \subsection{Thu thập và phân tích yêu cầu}
+  
+  \subsubsection{Định nghĩa yêu cầu}
+    \paragraph{\textnormal{
+      \textbf{Yêu cầu hệ thống}, hay ngắn gọn là \textbf{yêu cầu} là những gì mà hệ thống phải có, phải thực hiện. Những yêu cầu gồm:
+    }}
+    \begin{itemize}
+      \item Những chức năng mà hệ thống phải có.
+      \item Những đặc điểm mà hệ thống phải có.
+      \item Tập trung vào nghiệp vụ.
+      \item Có thể thay đổi trong quá trình phát triển.
+    \end{itemize}
+
+    \paragraph{\textnormal{
+      Có hai loại yêu cầu: \textit{yêu cầu chức năng} và \textit{yêu cầu phi chức năng}. Yêu cầu chức năng liên quan trực tiếp tới tiến trình mà hệ thống thực hiện. Còn yêu cầu phi chức năng là những tính chất hành vi mà hệ thống phải có như là: khả năng, năng suất, tính bảo mật, yêu cầu pháp lý, \ldots
+    }}
+  
+  \subsubsection{Tiêu chuẩn đánh giá yêu cầu}
+    \begin{itemize}
+      \item \textit{Nhất quán} -- các yêu cầu không mâu thuẫn.
+      \item \textit{Đầy đủ}.
+      \item \textit{Khả thi}.
+      \item \textit{Cần thiết} -- đáp ứng mục đích của hệ thống.
+      \item \textit{Chính xác} -- yêu cầu phải được phát biểu chính xác.
+      \item \textit{Dễ theo dõi} -- các yêu cầu đều tương ứng với chức năng và đặc trưng nào đó của hệ thống.
+      \item \textit{Dễ kiểm tra} -- các yêu cầu được xác định có thể kiểm tra được trong giai đoạn kiểm thử.
+    \end{itemize}
+  
+  \subsubsection{Các phương pháp thu thập yêu cầu}
+    \begin{itemize}
+      \item \textit{Nghiên cứu tài liệu}: sổ sách, hồ sơ, báo cáo, thống kê, các file trên máy, \ldots
+      \item \textit{Quan sát}.
+      \item \textit{Phỏng vấn}: lựa chọn người thích hợp để phỏng vấn, đưa ra các câu hỏi (câu hỏi đóng, câu hỏi mở hoặc câu hỏi thăm dò), tiến hành, báo cáo kết quả phỏng vấn.
+      \item \textit{Dùng phiếu hỏi}.
+    \end{itemize}
+
+    \paragraph{\textnormal{
+      Việc thu thập yêu cầu cần phải trung thực, khách quan, phản ánh đúng thực tế, không bỏ sót thông tin, không trùng lặp.
+    }}
 
   \subsection{Đặc tả yêu cầu}
 
-  \subsection{Xác định các class/object phân tích}
+    \subsubsection{Bảng thuật ngữ(glossary)}
+      \paragraph{\textnormal{
+        Trong một nghiệp vụ, một dự án, người ta thường sử dụng những thuật ngữ riêng biệt. Thuật ngữ có thể là một từ, những chữ viết tắt. Việc hiểu và sử dụng những thuật ngữ này giúp việc trình bày, nắm bắt vấn đề được ngắn gọn, nhanh chóng.
+      }}
+    
+    \subsubsection{Xây dựng sơ đồ use case}
+      \paragraph{\textnormal{
+        Sau khi thu thập và đánh giá những yêu cầu đó, chúng ta sẽ thực hiện việc mô hình hóa chúng. Những yêu cầu sẽ không được trình bày bằng lời mà bằng \textit{sơ đồ use case}.
+      }}
+      \paragraph{\textnormal{
+        Các use case biểu diễn những chức năng của hệ thống nhưng không cần chỉ rõ chúng được thực hiện như thế nào.
+      }}
+      \paragraph{\textnormal{
+        Tham khảo phần sơ đồ use case được trình bày trong chương 1. Các bước để lập sơ đồ use case:
+      }}
+      \begin{itemize}
+        \item \textit{Xác định tác nhân}: Tác nhân có thể là người hoặc vật thể không thuộc về hệ thống nhưng có tương tác với hệ thống. Tác nhân có thể là khách, người quản lý, người bảo dưỡng, các thiết bị ngoài hoặc những hệ thống khác.
+        \item \textit{Xác định use case}: Use case là một chuỗi hành động của hệ thống nhằm thu được kết quả cho một tác nhân nào đó. Use case xác định một chức năng dành cho tác nhân. Use case phải liên kết tới ít nhất một tác nhân.
+        \item \textit{Xác định mối quan hệ giữa các tác nhân với nhau, các use case với nhau và giữa tác nhân với use case}.
+      \end{itemize}
+    
+    \subsubsection{Bản mô tả use case}
+      \paragraph{\textnormal{
+        Sơ đồ use case thể hiện các tác nhân và chức năng một cách xúc tích, ngắn gọn. Tuy nhiên ta vẫn cần đến những bản mô tả/đặc tả use case. Một bản mô tả use case sẽ có dạng bảng như sau:
+      }}
 
-  \subsection{Mô tả quá trình tương tác trong một use case}
+      \begin{center}
+        \begin{tabular}{|l|l|l|}
+          \hline
+          \textbf{Tên use case:} $ \qquad $ & \textbf{ID:} $ \qquad $ & \textbf{Mức độ quan trọng:} $ \qquad $ \\
+          \hline
+          \textbf{Tác nhân chính:} $ \qquad $ & \multicolumn{2}{|l|}{\textbf{Loại use case:} $ \qquad $} \\
+          \hline
+          \multicolumn{3}{|l|}{\textbf{Mô tả ngắn gọn:} $ \qquad $} \\
+          \hline
+          \multicolumn{3}{|l|}{\textbf{Điều kiện khởi phát:} $ \qquad $} \\
+          \hline
+          \multicolumn{3}{|l|}{\textbf{Quan hệ:} $ \qquad $} \\
+          \hline
+          \multicolumn{3}{|l|}{\textbf{Luồng hoạt động:} $ \qquad $} \\
+          \hline
+          \textit{Thứ tự} & \textit{Thực hiện bởi} & \textit{Hành động} \\
+          \hline
+          $1$ & <Hệ thống hoặc tác nhân> & Hành động $1$\\
+          \hline
+          \multicolumn{3}{|l|}{\ldots\ldots\ldots}\\
+          \hline
+          $n$ & <Hệ thống hoặc tác nhân> & Hành động $n$ \\
+          \hline
+          \multicolumn{3}{|l|}{\textbf{Luồng hoạt động con:} $ \qquad $} \\
+          \hline
+        \end{tabular}
+      \end{center}
+      \paragraph{\textnormal{
+        Giải thích thêm về luồng hoạt động: Luồng hoạt động thể hiện các bước mà hệ thống cần thực hiện. Trong luồng hoạt động có thể có những luồng hoạt động con -- điều này xảy ra khi cần biểu diễn những trường hợp đặc biệt, những ngoại lệ có thể xảy ra.
+      }}
+    
+    \subsubsection{Mô tả luồng hoạt động}
+      
+      \paragraph{\textnormal{
+        Luồng hoạt động được thể hiện trực quan hơn thông qua sơ đồ hoạt động. Luồng hoạt động cần thiết khi cần mô tả một quy trình nghiệp vụ, một use case hoặc một thao tác phức tạp.
+      }}
+
+      \paragraph{\textnormal{
+        Tham khảo các ký hiệu của sơ đồ hoạt động trong phần cùng tên của chương 1.
+      }}
+
+  \subsection{Phân tích tĩnh}
+    \subsubsection{Xác định các lớp phân tích}
+      \paragraph{\textnormal{
+        Có thể nói rằng không có quy tắc chung nào cho việc xác định các lớp. Điều này đòi hỏi sự sáng tạo.
+      }}
+
+      \paragraph{\textnormal{
+        Các lớp được xác định có thể thay đổi dần dần trong quá trình phân tích và thiết kế. Kết quả cuối cùng chưa chắc đã là các lớp được xác định trong lần đầu. Vì vậy không nên quá sa đà vào việc xác định các lớp phân tích.
+      }}
+
+      \paragraph{\textnormal{
+        Một số cách xác định các lớp:
+      }}
+      \begin{itemize}
+        \item Như chúng ta đã biết thì lập trình hướng đối tượng là một mô hình lập trình dựa trên khái niệm đối tượng -- Các đối tượng trong đời sống thực tế có thể được ánh xạ thành các đối tượng trong lập trình. Như vậy, có thể xác định các lớp ban đầu bằng cách tìm ra những \textbf{danh từ} trong tài liệu.
+        \item Mỗi lớp phải thực hiện những nhiệm vụ, tính năng cụ thể -- ta có thể dựa vào sơ đồ use case để phát hiện các lớp.
+        \item Ta còn có thể xác định lớp nhờ một số cách phân loại:
+        \begin{itemize}
+          \item \textit{Lớp khái niệm}: Lớp khái niệm mô tả những khái niệm quan trọng và những quan hệ trong một nhóm nào đó.
+          \item \textit{Lớp sự kiện}: Lớp sự kiện lưu trữ những mốc thời gian, các sự kiện. Ví dụ: đăng ký, đăng nhập, thanh toán, \ldots
+          \item \textit{Lớp tổ chức}: Tập hợp tài nguyên, phương tiện, những nhóm giúp xác định chức năng người dùng. Ví dụ: đơn vị, bộ phận, phòng ban, \ldots
+          \item \textit{Lớp con người}: Thể hiện các vai trò khác nhau của con người. Ví dụ: khách hàng, sinh viên, nhân viên, giáo viên, giám đốc,\ldots
+          \item \textit{Lớp vị trí}: Các lớp đại diện cho vị trí vật lý. Ví dụ: tòa nhà, phòng, chi nhánh, công ty,\ldots
+          \item \textit{Lớp sự vật}: Là những đối tượng vật lý. Ví dụ: xe, thiết bị, máy móc,\ldots
+        \end{itemize}
+      \end{itemize}
+    
+    \subsubsection{Lớp phân tích}
+      \paragraph{\textnormal{
+        Các lớp phân tích có thể được xếp vào ba nhóm sau:
+      }}
+      \begin{itemize}
+        \item \textit{Lớp biên (boundary class)}: Là giao diện giữa tác nhân và hệ thống.\\
+        Mỗi một cặp tác nhân/use case trong sơ đồ use case đều có một lớp biên.\\
+        Có hai kiểu lớp biên: kiểu thứ nhất là lớp giao diện người dùng (GUI -- giao diện đồ họa), kiểu thứ hai là giao diện hệ thống (API).
+        \item \textit{Lớp thực thể (entity class)}: Là các lớp mô tả những thực thể trong hệ thống. Còn thực thể là những thông tin được lưu trữ và sử dụng lâu dài. Trong nhiều tình huống, lớp thực thể chính là các lớp được ánh xạ từ cơ sở dữ liệu quan hệ.
+        \item \textit{Lớp điều kiện (control class)}: Thể hiện hành động của từng use case. Một use case sử dụng ít nhất một lớp điều khiển.
+      \end{itemize}
+
+    \subsubsection{Xác định quan hệ giữa các lớp}
+
+    \subsubsection{Sơ đồ lớp}
+
+    \subsubsection{Xác định thuộc tính lớp}
+
+  \subsection{Phân tích động}
+    \subsection{Xây dựng sơ đồ giao tiếp}
+
+    \subsection{Xác định các phương thức cho các lớp}
 
   \subsection{Thiết kế hệ thống con}
 
