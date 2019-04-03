@@ -12,5 +12,17 @@
   * Xem kết quả đăng ký (chuyên viên)
   * Xem thông tin sinh viên (chuyên viên)
 * Ngô Quang Dương
+  * Đăng ký môn học mới (sinh viên)
+  * Hủy đăng ký (sinh viên)
+  * Thay đổi kết quả đăng ký học của sinh viên (chuyên viên)
+  * Đóng/mở đăng ký học
+  * Lập thời khóa biểu
+  * Thay đổi thời khóa biểu
+* Hà Thế Lực
+  * Chọn lớp môn học (giảng viên)
+  * Quy định số sinh viên tối đa/tối thiểu được đăng ký (giảng viên)
+  * Tạo người dùng mới (quản trị hệ thống)
+  * Thay đổi thông tin người dùng (quản trị hệ thống)
+  * Xóa người dùng (quản trị hệ thống)
 
-*
+*còn tiếp...*
