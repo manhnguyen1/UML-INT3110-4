@@ -242,12 +242,9 @@ TSWLatexianTemp*
 # Texpad
 .texpadtmp
 
-# LyX
 *.lyx~
 
 # Kile
-*.backup
-
 # KBibTeX
 *~[0-9]*
 
