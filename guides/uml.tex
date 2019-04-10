@@ -307,14 +307,20 @@
       \item Những chức năng mà hệ thống phải có.
       \item Những đặc điểm mà hệ thống phải có.
       \item Thông tin về nghiệp vụ.
-      \item Có thể thay đổi trong quá trình phát triển.
     \end{itemize}
+
+    \paragraph{\textnormal{
+      Những yêu cầu có thể thay đổi trong quá trình phát triển.
+    }}
 
     \paragraph{\textnormal{
       Có hai loại yêu cầu: \textit{yêu cầu chức năng} và \textit{yêu cầu phi chức năng}. Yêu cầu chức năng liên quan trực tiếp tới tiến trình mà hệ thống thực hiện. Còn yêu cầu phi chức năng là những tính chất hành vi mà hệ thống phải có như là: khả năng, năng suất, tính bảo mật, yêu cầu pháp lý, \ldots
     }}
   
   \subsubsection{Tiêu chuẩn đánh giá yêu cầu}
+    \paragraph{\textnormal{
+      Một yêu cầu tốt sẽ đáp ứng những tiêu chuẩn sau:
+    }}
     \begin{itemize}
       \item \textit{Nhất quán} -- các yêu cầu không mâu thuẫn.
       \item \textit{Đầy đủ}.
@@ -393,7 +399,7 @@
         \end{tabular}
       \end{center}
       \paragraph{\textnormal{
-        Giải thích thêm về luồng hoạt động: Luồng hoạt động thể hiện các bước mà hệ thống cần thực hiện. Trong luồng hoạt động có thể có những luồng hoạt động con -- điều này xảy ra khi cần biểu diễn những trường hợp đặc biệt, những ngoại lệ có thể xảy ra.
+        Giải thích thêm về luồng hoạt động: Luồng hoạt động thể hiện các bước mà hệ thống cần thực hiện. Trong luồng hoạt động có thể có những luồng hoạt động con -- điều này xảy ra khi cần biểu diễn sự rẽ nhánh, những trường hợp đặc biệt, những ngoại lệ có thể xảy ra.
       }}
     
     \subsubsection{Mô tả luồng hoạt động}
@@ -403,10 +409,17 @@
       }}
 
       \paragraph{\textnormal{
+        Không nên nhầm lẫn giữa sơ đồ hoạt động với sơ đồ tuần tự. Bởi sơ đồ hoạt động tập trung vào mô tả nghiệp vụ, trong khi đó sơ đồ tuần tự thể hiện thứ tự gọi các phương thức, sự tương tác giữa các object.
+      }}
+
+      \paragraph{\textnormal{
         Tham khảo các ký hiệu của sơ đồ hoạt động trong phần cùng tên của chương 1.
       }}
 
   \subsection{Phân tích tĩnh}
+    \paragraph{\textnormal{
+      Kết quả của quá trình phân tích là mô hình phân tích. \textit{Mô hình phân tích} chính là cầu nối giữa \textit{mô hình. Trong quá trình này, chúng ta sẽ các định các lớp (class) phân tích. Tuy nhiên những lớp này hoàn toàn có thể được thay đổi trong giai đoạn thiết kế.}
+    }}
     \subsubsection{Xác định các lớp phân tích}
       \paragraph{\textnormal{
         Có thể nói rằng không có quy tắc chung nào cho việc xác định các lớp. Điều này đòi hỏi sự sáng tạo.
@@ -421,34 +434,22 @@
       }}
       \begin{itemize}
         \item Như chúng ta đã biết thì lập trình hướng đối tượng là một mô hình lập trình dựa trên khái niệm đối tượng -- Các đối tượng trong đời sống thực tế có thể được ánh xạ thành các đối tượng trong lập trình. Như vậy, có thể xác định các lớp ban đầu bằng cách tìm ra những \textbf{danh từ} trong tài liệu.
-        \item Mỗi lớp phải thực hiện những nhiệm vụ, tính năng cụ thể -- ta có thể dựa vào sơ đồ use case để phát hiện các lớp.
+        \item Mỗi lớp phải thực hiện những nhiệm vụ, tính năng cụ thể -- ta có thể dựa vào \textit{sơ đồ use case} để phát hiện các lớp.
         \item Ta còn có thể xác định lớp nhờ một số cách phân loại:
         \begin{itemize}
           \item \textit{Lớp khái niệm}: Lớp khái niệm mô tả những khái niệm quan trọng và những quan hệ trong một nhóm nào đó.
-          \item \textit{Lớp sự kiện}: Lớp sự kiện lưu trữ những mốc thời gian, các sự kiện. Ví dụ: đăng ký, đăng nhập, thanh toán, \ldots
-          \item \textit{Lớp tổ chức}: Tập hợp tài nguyên, phương tiện, những nhóm giúp xác định chức năng người dùng. Ví dụ: đơn vị, bộ phận, phòng ban, \ldots
-          \item \textit{Lớp con người}: Thể hiện các vai trò khác nhau của con người. Ví dụ: khách hàng, sinh viên, nhân viên, giáo viên, giám đốc,\ldots
-          \item \textit{Lớp vị trí}: Các lớp đại diện cho vị trí vật lý. Ví dụ: tòa nhà, phòng, chi nhánh, công ty,\ldots
-          \item \textit{Lớp sự vật}: Là những đối tượng vật lý. Ví dụ: xe, thiết bị, máy móc,\ldots
+          \item \textit{Lớp sự kiện}: Lớp sự kiện lưu trữ những mốc thời gian, các sự kiện. Ví dụ: \textit{đăng ký, đăng nhập, thanh toán, \ldots}
+          \item \textit{Lớp tổ chức}: Tập hợp tài nguyên, phương tiện, những nhóm giúp xác định chức năng người dùng. Ví dụ: \textit{đơn vị, bộ phận, phòng ban, \ldots}
+          \item \textit{Lớp con người}: Thể hiện các vai trò khác nhau của con người. Ví dụ: \textit{khách hàng, sinh viên, nhân viên, giáo viên, giám đốc, \ldots}
+          \item \textit{Lớp vị trí}: Các lớp đại diện cho vị trí vật lý. Ví dụ: \textit{tòa nhà, phòng, chi nhánh, công ty, \ldots}
+          \item \textit{Lớp sự vật}: Là những đối tượng vật lý. Ví dụ: \textit{xe, thiết bị, máy móc, \ldots}
         \end{itemize}
       \end{itemize}
     
-    \subsubsection{Lớp phân tích}
-      \paragraph{\textnormal{
-        Các lớp phân tích có thể được xếp vào ba nhóm sau:
-      }}
-      \begin{itemize}
-        \item \textit{Lớp biên (boundary class)}: Là giao diện giữa tác nhân và hệ thống.\\
-        Mỗi một cặp tác nhân/use case trong sơ đồ use case đều có một lớp biên.\\
-        Có hai kiểu lớp biên: kiểu thứ nhất là lớp giao diện người dùng (GUI -- giao diện đồ họa), kiểu thứ hai là giao diện hệ thống (API).
-        \item \textit{Lớp thực thể (entity class)}: Là các lớp mô tả những thực thể trong hệ thống. Còn thực thể là những thông tin được lưu trữ và sử dụng lâu dài. Trong nhiều tình huống, lớp thực thể chính là các lớp được ánh xạ từ cơ sở dữ liệu quan hệ.
-        \item \textit{Lớp điều kiện (control class)}: Thể hiện hành động của từng use case. Một use case sử dụng ít nhất một lớp điều khiển.
-      \end{itemize}
-
     \subsubsection{Xác định quan hệ giữa các lớp}
 
     \paragraph{\textnormal{
-      Nhắc lại (từ chương 1, phần sơ đồ lớp), quan hệ giữa các lớp (classes) thuộc một trong các loại sau:
+      Nhắc lại (từ chương 1, phần \textit{sơ đồ lớp}), quan hệ giữa các lớp (class) thuộc một trong các loại sau:
     }}
     \begin{itemize}
       \item Thừa kế/tổng quát hóa (inheritance, generalization).
@@ -461,21 +462,20 @@
       Trong đó, với quan hệ kết hợp, kết tập và hợp thành ta cần chỉ ra bội số ( $1$ -- $1$, $1$ -- $n$, $n$ -- $n$).
     }}
 
+    \subsubsection{Lập sơ đồ lớp}
+    
     \paragraph{\textnormal{
-      Từ những điều trên, ta có thể xây dựng sơ đồ lớp thể hiện được quan hệ giữa các lớp.
+      Từ những điều trên, ta có thể xây dựng \textit{sơ đồ lớp} thể hiện được quan hệ giữa các lớp. Xem về \textit{sơ đồ lớp} tại chương 1.
     }}
 
     \subsubsection{Xác định thuộc tính lớp}
 
   \subsection{Phân tích động}
-    \subsection{Xây dựng sơ đồ giao tiếp}
+    \subsection{Xây dựng sơ đồ giao tiếp hoặc sơ đồ tuần tự}
+    \subsection{Gán phương thức cho các lớp}
 
-    \subsection{Xác định các phương thức cho các lớp}
+  \subsection{Thiết kế kiến trúc hệ thống}
 
-  \subsection{Thiết kế hệ thống con}
-
-  \subsection{Lựa chọn công nghệ}
-
-  \subsection{Cài đặt và triển khai}
+  \subsection{}
 
 \end{document}

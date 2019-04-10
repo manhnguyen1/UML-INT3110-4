@@ -10,7 +10,7 @@ Nhóm thực hiện bài tập lớn này chỉ có **DUY NHẤT** một thành 
 
 Yêu cầu cho bài tập lớn là chọn một hệ thống để thực hiện việc *phân tích và thiết kế*. Ở đây, hệ thống được chọn là hệ thống *Đăng ký môn học*.
 
-Trong *repository* này không có `code` mà thay vào đó là tài liệu. Các tác giả sẽ trình bày những công đoạn trong việc phân tích thiết kế hệ thống đăng ký môn học, biểu diễn bằng văn bản và các sơ đồ **UML**.
+Trong *repository* này không có `code` mà thay vào đó là tài liệu. Tác giả sẽ trình bày những công đoạn trong việc phân tích thiết kế hệ thống đăng ký môn học, biểu diễn bằng văn bản và các sơ đồ **UML**.
 
 ## Hướng dẫn đọc tài liệu
 
