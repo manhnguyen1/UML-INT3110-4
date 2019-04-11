@@ -10,9 +10,7 @@
 
 \title{\textbf{Phân tích thiết kế hệ thống "Đăng ký môn học"}}
 \author{
-  Ngô Quang Dương\\
-  Hà Thế Lực\\
-  Nguyễn Thanh Tuyên
+  Ngô Quang Dương
 }
 \date{\today}
 
@@ -34,84 +32,83 @@
 \section{Thu thập và phân tích yêu cầu}
   
   \subsection{Bảng thuật ngữ}
+    \begin{itemize}
+      \item \textbf{Người dùng}: Những người có tài khoản trong hệ thống đăng ký môn học.
+      \item \textbf{Chuyên viên}: Những người làm việc ở phòng công tác sinh viên.
+      \item \textbf{Lớp môn học}: Một môn học có thể được chia ra làm nhiều lớp. Chẳng hạn với môn cơ sở dữ liệu (mã môn học là \textbf{INT2207}) có các lớp \textbf{INT2207 1}, \textbf{INT2207 2}, \textbf{INT2207 3}, \ldots
+      \item \textbf{Buổi lý thuyết}: Mọi lớp học đều có duy nhất một buổi lý thuyết.
+      \item \textbf{Buổi thực hành}: Một lớp học có thể có nhiều hoặc không có buổi thực hành nào.
+    \end{itemize}
   
   \subsection{Tác nhân hệ thống}
     \begin{itemize}
+      \item Quản trị hệ thống.
       \item Sinh viên.
-      \item Chuyên viên phòng đào tạo.
+      \item Chuyên viên.
       \item Giảng viên.
-      \item Người quản trị hệ thống.
     \end{itemize}
   
   \subsection{Yêu cầu chức năng}
-    \paragraph{
-      \textnormal{
-        Chức năng chung:
-      }
-    }
+    \paragraph{Chức năng chung:}
     \begin{itemize}
       \item Đăng nhập/đăng xuất.
-      \item Tìm kiếm.
-      \item Xem thông tin môn học.
+      \item Chỉnh sửa thông tin tài khoản.
     \end{itemize}
 
-    \paragraph{
-      \textnormal{
-        Chức năng dành cho sinh viên:
-      }
-    }
+    \paragraph{Chức năng dành cho quản trị hệ thống:}
     \begin{itemize}
-      \item Đăng ký môn học.
-        \begin{itemize}
-          \item Đăng ký môn mới.
-          \item Hủy đăng ký.
-        \end{itemize}
-      \item Xem kết quả đăng ký.
-      \item In kết quả đăng ký học.
-    \end{itemize}
-
-    \paragraph{
-      \textnormal{
-        Chức năng dành cho chuyên viên:
-      }
-    }
-    \begin{itemize}
-      \item Thay đổi kết quả đăng ký học của sinh viên.
-      \item Xem kết quả đăng ký của sinh viên.
-      \item Xem thông tin sinh viên.
-    \end{itemize}
-
-    \paragraph{
-      \textnormal{
-        Chức năng dành cho giảng viên:
-      }
-    }
-    \begin{itemize}
-      \item Chọn lớp môn học.
-      \item Quy định số sinh viên tối đa/tối thiểu được đăng ký.
-    \end{itemize}
-
-    \paragraph{
-      \textnormal{
-        Chức năng dành cho người quản trị hệ thống:
-      }
-    }
-    \begin{itemize}
-      \item Đóng/mở đăng ký học.
-      \item Lập thời khóa biểu.
-      \item Thay đổi thời khóa biểu.
-      \item Quản lý người dùng:
+      \item Quản lý người dùng.
       \begin{itemize}
+        \item Tìm kiếm người dùng.
         \item Tạo người dùng mới.
-        \item Thay đổi thông tin người dùng.
+        \item Chỉnh sửa thông tin.
         \item Xóa người dùng.
       \end{itemize}
+      \item Quản lý môn học:
+      \begin{itemize}
+        \item Tìm kiếm môn học.
+        \item Tạo môn học/lớp môn học mới.
+        \item Chỉnh sửa thông tin môn học/lớp môn học.
+        \item Xóa môn học/lớp môn học.
+      \end{itemize}
+      \item Quản lý lớp học:
+      \begin{itemize}
+        \item Tìm kiếm lớp học.
+        \item Tạo lớp học mới.
+        \item Chỉnh sửa thông tin lớp học.
+        \item Xóa lớp học.
+      \end{itemize}
+      \item Mở/đóng hệ thống:
+      \begin{itemize}
+        \item Cho sinh viên đăng ký môn học.
+        \item Cho giảng viên sắp xếp thời khóa biểu.
+      \end{itemize}
+    \end{itemize}
+
+    \paragraph{Chức năng dành cho sinh viên và chuyên viên:}
+    \begin{itemize}
+      \item Tìm kiếm môn học.
+      \item Đăng ký môn học.
+      \begin{itemize}
+        \item Đăng ký môn học mới.
+        \item Bỏ môn học đã chọn.
+        \item Xem danh sách các môn đã đăng ký.
+      \end{itemize}
+    \end{itemize}
+
+    \paragraph{Chức năng dành cho giảng viên:}
+    \begin{itemize}
+      \item Tìm kiếm lớp học.
+      \item Chọn lớp giảng dạy.
+      \item Chọn thời khóa biểu.
+      \item Chọn phòng học.
+      \item Xem danh sách các lớp đã nhận.
     \end{itemize}
 
   \subsection{Yêu cầu phi chức năng}
     \paragraph{
       \textnormal{
-        Qua khảo sát của hai kiểu người dùng là sinh viên và giảng viên, về mặt phi chức năng cần đáp ứng các yêu cầu sau:
+        Qua khảo sát đối với người dùng là sinh viên, hệ thống cần được đáp ứng các yêu cầu sau:
       }
     }
     \begin{itemize}
@@ -122,38 +119,34 @@
     \end{itemize}
   
   \subsection{Điều kiện ràng buộc}
-    
-    \paragraph{\textnormal{
-      Đối với sinh viên:
-    }}
+    \paragraph{Đối với sinh viên và chuyên viên:}
     \begin{itemize}
       \item Không đăng ký quá 2 môn giáo dục thể chất.
-      \item Không đăng ký các môn học có kết quả trên $D$.
-      \item Số tín chỉ tối thiểu:
-      \begin{itemize}
-        \item Chương trình chuẩn: $14$.
-        \item Chương trình chất lượng cao: $16$.
-        \item Chương trình chuẩn quốc tế: $16$.
-        \item Chương trình đào tạo tài năng: $18$.
-      \end{itemize}
+      \item Không đăng ký môn học đã qua với điểm cao hơn $ D $.
+      \item Không đăng ký 2 môn học trùng thời khóa biểu.
+      \item Số tín chỉ không vượt quá $ 40 $.
     \end{itemize}
 
-    \paragraph{\textnormal{
-      Đối với quản trị hệ thống:
-    }}
+    \paragraph{Đối với giảng viên:}
     \begin{itemize}
-      \item Không có buổi học nào trùng cả phòng học lẫn giờ học.
-      \item Không tự ý thay đổi thông tin của người dùng.
+      \item Không nhận hai lớp bị trùng thời khóa biểu.
     \end{itemize}
 
 \section{Đặc tả yêu cầu}
 
   \subsection{Sơ đồ use case}
-    \begin{figure}[!ht]
-      \centering
-      \includegraphics[scale=0.4]{../pictures/projectdiagrams/usecasediagram.jpg}
-      \caption{Sơ đồ use case của hệ thống đăng ký môn học}
-    \end{figure}
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/uc.jpg}
+    \caption{Sơ đồ use case}
+  \end{figure}
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/uc-destructing.jpg}
+    \caption{Sơ đồ use case phân rã}
+  \end{figure}
 
   \subsection{Đặc tả use case}
 
