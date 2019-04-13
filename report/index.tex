@@ -21,6 +21,8 @@
 \begin{abstract}
 \end{abstract}
 
+\tableofcontents
+
 \section{Mở đầu}
 
   \subsection{Đặt vấn đề}
@@ -34,7 +36,11 @@
   \subsection{Bảng thuật ngữ}
     \begin{itemize}
       \item \textbf{Người dùng}: Những người có tài khoản trong hệ thống đăng ký môn học.
+      \item \textbf{Sinh viên}: Những người theo học tại trường. Sinh viên theo học một khoa nào đó.
       \item \textbf{Chuyên viên}: Những người làm việc ở phòng công tác sinh viên.
+      \item \textbf{Giảng viên}: Người tham gia vào việc giảng dạy. Giảng viên thuộc một khoa nào đó hoặc không. Trong một học kỳ, giảng viên có thể giảng dạy một số môn học tại một số lớp. Tuy nhiên giảng viên chỉ dạy môn học thuộc khoa của mình.
+      \item \textbf{Khoa}: Đơn vị mà giảng viên làm việc, sinh viên theo học.
+      \item \textbf{Môn học}: Phần kiến thức chuyên về một mảng nào đó, ví dụ như \textbf{giải tích}, \textbf{toán rời rạc}, \textbf{lập trình hướng đối tượng}, \ldots Một môn học có thể thuộc một khoa nào đó hoặc không.
       \item \textbf{Lớp môn học}: Một môn học có thể được chia ra làm nhiều lớp. Chẳng hạn với môn cơ sở dữ liệu (mã môn học là \textbf{INT2207}) có các lớp \textbf{INT2207 1}, \textbf{INT2207 2}, \textbf{INT2207 3}, \ldots
       \item \textbf{Buổi lý thuyết}: Mọi lớp học đều có duy nhất một buổi lý thuyết.
       \item \textbf{Buổi thực hành}: Một lớp học có thể có nhiều hoặc không có buổi thực hành nào.
@@ -59,6 +65,7 @@
     \begin{itemize}
       \item Quản lý người dùng.
       \begin{itemize}
+        \item Xem thông tin người dùng.
         \item Tìm kiếm người dùng.
         \item Tạo người dùng mới.
         \item Chỉnh sửa thông tin.
@@ -66,6 +73,7 @@
       \end{itemize}
       \item Quản lý môn học:
       \begin{itemize}
+        \item Xem thông tin môn học.
         \item Tìm kiếm môn học.
         \item Tạo môn học/lớp môn học mới.
         \item Chỉnh sửa thông tin môn học/lớp môn học.
@@ -73,6 +81,7 @@
       \end{itemize}
       \item Quản lý lớp học:
       \begin{itemize}
+        \item Xem thông tin lớp học.
         \item Tìm kiếm lớp học.
         \item Tạo lớp học mới.
         \item Chỉnh sửa thông tin lớp học.
@@ -85,10 +94,13 @@
       \end{itemize}
     \end{itemize}
 
-    \paragraph{Chức năng dành cho sinh viên và chuyên viên:}
+    \paragraph{Chức năng dành cho sinh viên:}
     \begin{itemize}
+      \item Xem thông tin môn học.
       \item Tìm kiếm môn học.
       \item Đăng ký môn học.
+      \item Xem thông tin giảng viên.
+      \item Tìm kiếm giảng viên.
       \begin{itemize}
         \item Đăng ký môn học mới.
         \item Bỏ môn học đã chọn.
@@ -96,12 +108,19 @@
       \end{itemize}
     \end{itemize}
 
+    \paragraph{Chức năng dành cho chuyên viên:}
+    \begin{itemize}
+      \item Tìm kiếm sinh viên.
+      \item Xem thông tin sinh viên.
+      \item Tất cả các chức năng dành cho sinh viên (tuy nhiên việc đăng ký môn học được coi là đăng ký cho sinh viên chứ không phải cho chuyên viên).
+    \end{itemize}
+
     \paragraph{Chức năng dành cho giảng viên:}
     \begin{itemize}
+      \item Xem thông tin lớp học.
       \item Tìm kiếm lớp học.
-      \item Chọn lớp giảng dạy.
-      \item Chọn thời khóa biểu.
-      \item Chọn phòng học.
+      \item Chọn/hủy lớp giảng dạy.
+      \item Đặt thời khóa biểu.
       \item Xem danh sách các lớp đã nhận.
     \end{itemize}
 
@@ -148,7 +167,17 @@
     \caption{Sơ đồ use case phân rã}
   \end{figure}
 
-  \subsection{Đặc tả use case}
+  \subsection{Đặc tả use case dưới dạng bảng}
+
+  \paragraph{Các use case chung:}
+
+  \paragraph{Dành cho quản trị hệ thống:}
+
+  \paragraph{Dành cho sinh viên:}
+
+  \paragraph{Dành cho chuyên viên:}
+
+  \paragraph{Dành cho giảng viên:}
 
   \subsection{Sơ đồ hoạt động}
 
@@ -156,7 +185,7 @@
 
   \subsection{Xác định lớp}
 
-  \subsection{Quan hệ giữa các lớp/sơ đồ lớp}
+  \subsection{Quan hệ giữa các lớp}
 
   \subsection{Lớp phân tích}
 
@@ -164,6 +193,14 @@
 
   \subsection{Xác định phương thức}
 
-\section{}
+  % \begin{figure}[!ht]
+  %   \centering
+  %   \includegraphics[]{}
+  %   \caption{Sơ đồ lớp}
+  % \end{center}
+
+\section{Phân tích động}
+
+  \subsection{Sơ đồ tuần tự}
 
 \end{document}
