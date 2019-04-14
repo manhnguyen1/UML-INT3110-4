@@ -84,6 +84,7 @@
         \item Xem thông tin lớp học.
         \item Tìm kiếm lớp học.
         \item Tạo lớp học mới.
+        \item Đặt thời khóa biểu.
         \item Chỉnh sửa thông tin lớp học.
         \item Xóa lớp học.
       \end{itemize}
@@ -98,9 +99,9 @@
     \begin{itemize}
       \item Xem thông tin môn học.
       \item Tìm kiếm môn học.
-      \item Đăng ký môn học.
       \item Xem thông tin giảng viên.
       \item Tìm kiếm giảng viên.
+      \item Đăng ký môn học.
       \begin{itemize}
         \item Đăng ký môn học mới.
         \item Bỏ môn học đã chọn.
@@ -120,7 +121,6 @@
       \item Xem thông tin lớp học.
       \item Tìm kiếm lớp học.
       \item Chọn/hủy lớp giảng dạy.
-      \item Đặt thời khóa biểu.
       \item Xem danh sách các lớp đã nhận.
     \end{itemize}
 
@@ -153,20 +153,39 @@
 
 \section{Đặc tả yêu cầu}
 
-  \subsection{Sơ đồ use case}
+  \subsection{Các sơ đồ use case}
 
   \begin{figure}[!ht]
     \centering
     \includegraphics[scale=0.4]{../pictures/projectdiagrams/uc.jpg}
-    \caption{Sơ đồ use case}
+    \caption{Sơ đồ use case tổng quan}
   \end{figure}
 
   \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.4]{../pictures/projectdiagrams/uc-destructing.jpg}
-    \caption{Sơ đồ use case phân rã}
+    \includegraphics[scale=0.7]{../pictures/projectdiagrams/Register-uc-desctructing.jpg}
+    \caption{Sơ đồ phân rã cho use case đăng ký môn học}
   \end{figure}
 
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.7]{../pictures/projectdiagrams/Manage-Users-uc-desctructing.jpg}
+    \caption{Sơ đồ phân rã cho use case quản lý người dùng}
+  \end{figure}
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.7]{../pictures/projectdiagrams/Manage-Subjects-uc-desctructing.jpg}
+    \caption{Sơ đồ phân rã cho use case quản lý môn học}
+  \end{figure}
+
+  \begin{figure}[!ht]
+    \centering
+    \includegraphics[scale=0.7]{../pictures/projectdiagrams/Manage-Classes-uc-destructing.jpg}
+    \caption{Sơ đồ phân rã cho use case quản lý lớp học}
+  \end{figure}
+
+  \clearpage % use this instead of \newpage or \pagebreak
   \subsection{Đặc tả use case dưới dạng bảng}
 
   \paragraph{Các use case chung:}
