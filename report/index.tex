@@ -5,6 +5,11 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
 \usepackage{url}
 \usepackage{cases}
 
@@ -113,7 +118,12 @@
     \begin{itemize}
       \item Tìm kiếm sinh viên.
       \item Xem thông tin sinh viên.
-      \item Tất cả các chức năng dành cho sinh viên (tuy nhiên việc đăng ký môn học được coi là đăng ký cho sinh viên chứ không phải cho chuyên viên).
+      \item Chọn sinh viên (để thực hiện việc đăng ký môn học)
+      \begin{itemize}
+        \item Đăng ký môn học mới.
+        \item Hủy môn học đã chọn.
+        \item Xem danh sách các môn đã đăng ký.
+      \end{itemize}
     \end{itemize}
 
     \paragraph{Chức năng dành cho giảng viên:}
@@ -155,34 +165,45 @@
 
   \subsection{Các sơ đồ use case}
 
-  \begin{figure}[!ht]
+  \begin{figure}[!htb]
     \centering
     \includegraphics[scale=0.4]{../pictures/projectdiagrams/uc.jpg}
     \caption{Sơ đồ use case tổng quan}
   \end{figure}
 
-  \begin{figure}[!ht]
+  \paragraph{
+    \textnormal{Do khả năng tận dụng diện tích có hạn nên một số use case được thể hiện trong các sơ đồ use case phân rã như dưới đây}
+  }
+  \clearpage
+
+  \begin{figure}[!htb]
     \centering
-    \includegraphics[scale=0.7]{../pictures/projectdiagrams/Register-uc-desctructing.jpg}
+    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Register-uc-desctructing.jpg}
     \caption{Sơ đồ phân rã cho use case đăng ký môn học}
   \end{figure}
 
-  \begin{figure}[!ht]
+  \begin{figure}[!htb]
     \centering
-    \includegraphics[scale=0.7]{../pictures/projectdiagrams/Manage-Users-uc-desctructing.jpg}
+    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Users-uc-desctructing.jpg}
     \caption{Sơ đồ phân rã cho use case quản lý người dùng}
   \end{figure}
 
-  \begin{figure}[!ht]
+  \begin{figure}[!htb]
     \centering
-    \includegraphics[scale=0.7]{../pictures/projectdiagrams/Manage-Subjects-uc-desctructing.jpg}
+    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Subjects-uc-desctructing.jpg}
     \caption{Sơ đồ phân rã cho use case quản lý môn học}
   \end{figure}
 
-  \begin{figure}[!ht]
+  \begin{figure}[!htb]
     \centering
-    \includegraphics[scale=0.7]{../pictures/projectdiagrams/Manage-Classes-uc-destructing.jpg}
+    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Classes-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case quản lý lớp học}
+  \end{figure}
+
+  \begin{figure}[!htb]
+    \centering
+    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Choose-Student-uc-destructing.jpg}
+    \caption{Sơ đồ phân rã cho use case chọn sinh viên}
   \end{figure}
 
   \clearpage % use this instead of \newpage or \pagebreak
@@ -212,7 +233,7 @@
 
   \subsection{Xác định phương thức}
 
-  % \begin{figure}[!ht]
+  % \begin{figure}[!htb]
   %   \centering
   %   \includegraphics[]{}
   %   \caption{Sơ đồ lớp}
