@@ -172,6 +172,7 @@
     \paragraph{Đối với giảng viên:}
     \begin{itemize}
       \item Không nhận hai lớp bị trùng thời khóa biểu.
+      \item Chỉ được nhận lớp thuộc môn học ở khoa mà giảng viên đó giảng dạy.
     \end{itemize}
 
 \section{Đặc tả yêu cầu}
@@ -1290,6 +1291,145 @@
       $\ 1.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{
         \makecell[l]{Thông báo không được xóa lớp học đã có sinh\\ viên đăng ký}
       } \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  \subsubsection*{Dành cho giảng viên}
+  \paragraph{\textnormal{
+    Giảng viên cũng có use case \textit{tìm kiếm lớp học} và \textit{xem thông tin lớp học} như của quản trị hệ thống, với đặc tả hoàn toàn tương tự.
+  }}
+
+  % Nhận lớp học
+  % lec01
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Nhận lớp học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Nhận lớp học} & \textbf{ID: }lec01 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }giảng viên} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Mô tả: }Giảng viên nhận giảng dạy một lớp
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Điều kiện khởi phát: }Giảng viên chọn một lớp
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\quad\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Giảng viên & \multicolumn{2}{l}{Gửi yêu cầu nhận lớp} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Kiểm tra thời khoá biểu và các lớp\\
+          đã nhận
+        }
+      } \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Thông báo nhận lớp thành công
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 2.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo trùng thời khoá biểu} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Rời lớp học
+  % lec02
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Rời lớp học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Rời lớp học} & \textbf{ID: }lec02 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }giảng viên} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Mô tả: }Giảng viên huỷ nhận một lớp mà mình đã chọn nhận
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Điều kiện khởi phát: }Giảng viên chọn một lớp mình đã nhận
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\quad\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Giảng viên & \multicolumn{2}{l}{Gửi yêu cầu huỷ nhận lớp} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Thông báo huỷ nhận lớp thành công
+        }
+      } \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Xem danh sách lớp đã nhận}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Xem danh sách lớp đã nhận} & \textbf{ID: }lec03 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }Giảng viên} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Mô tả: }Giảng viên xem những lớp học mình đã nhận} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Giảng viên truy cập vào trang cá nhân} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}}\\
+      \hline
+      TT $\quad\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị danh sách lớp đã nhận} \\
       \bottomrule
     \end{tabularx}
   \end{table}
