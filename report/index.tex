@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage[top=20mm, left=40mm, right=40mm, bottom=20mm]{geometry}
 \usepackage[utf8]{vietnam}
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -6,12 +7,16 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{array}
+\usepackage{makecell}
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{multicol}
 \usepackage{multirow}
+\usepackage{float}
 \usepackage{url}
 \usepackage{cases}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
 
 \title{\textbf{Phân tích thiết kế hệ thống "Đăng ký môn học"}}
 \author{
@@ -20,6 +25,8 @@
 \date{\today}
 
 \begin{document}
+
+\listoftables
 
 \maketitle
 
@@ -108,9 +115,10 @@
       \item Tìm kiếm giảng viên.
       \item Đăng ký môn học.
       \begin{itemize}
-        \item Đăng ký môn học mới.
-        \item Bỏ môn học đã chọn.
-        \item Xem danh sách các môn đã đăng ký.
+        \item Tìm kiếm lớp học.
+        \item Đăng ký lớp học mới.
+        \item Bỏ lớp học đã chọn.
+        \item Xem danh sách các lớp đã đăng ký.
       \end{itemize}
     \end{itemize}
 
@@ -128,8 +136,8 @@
 
     \paragraph{Chức năng dành cho giảng viên:}
     \begin{itemize}
-      \item Xem thông tin lớp học.
       \item Tìm kiếm lớp học.
+      \item Xem thông tin lớp học.
       \item Chọn/hủy lớp giảng dạy.
       \item Xem danh sách các lớp đã nhận.
     \end{itemize}
@@ -152,6 +160,7 @@
     \begin{itemize}
       \item Không đăng ký quá 2 môn giáo dục thể chất.
       \item Không đăng ký môn học đã qua với điểm cao hơn $ D $.
+      \item Không đăng ký nhiều hơn 1 lớp cùng một môn.
       \item Không đăng ký 2 môn học trùng thời khóa biểu.
       \item Số tín chỉ không vượt quá $ 40 $.
     \end{itemize}
@@ -178,19 +187,19 @@
 
   \begin{figure}[!htb]
     \centering
-    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Register-uc-desctructing.jpg}
+    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Register-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case đăng ký môn học}
   \end{figure}
 
   \begin{figure}[!htb]
     \centering
-    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Users-uc-desctructing.jpg}
+    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Users-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case quản lý người dùng}
   \end{figure}
 
   \begin{figure}[!htb]
     \centering
-    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Subjects-uc-desctructing.jpg}
+    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Subjects-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case quản lý môn học}
   \end{figure}
 
@@ -209,15 +218,279 @@
   \clearpage % use this instead of \newpage or \pagebreak
   \subsection{Đặc tả use case dưới dạng bảng}
 
-  \paragraph{Các use case chung:}
+  \subsubsection*{Các use case chung}
 
-  \paragraph{Dành cho quản trị hệ thống:}
+  \begin{table}[ht]
+    \centering
+    \caption{\textbf{Đăng nhập}}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \textbf{Tên use case:} Đăng nhập & \multicolumn{2}{l}{\textbf{ID:} common01} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính:} Tất cả} \\
+      \hline
+      \textbf{Mức độ quan trọng:} cao & \multicolumn{2}{l}{\textbf{Loại use case:} hệ thống} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Mô tả: }Xác thực người dùng dựa vào tên đăng nhập và mật khẩu} \\
+      \hline
+      \multicolumn{3}{p{0.95\textwidth}}{
+        \textbf{Điều kiện khởi phát: }Người dùng truy cập vào hệ thống mà chưa được xác thực thành công.
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Để có thể thực hiện các use case khác, cần đăng nhập trước.
+        }
+      }\\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Người dùng & \multicolumn{2}{l}{Nhập thông tin đăng nhập} \\
+      \hline
+      $\quad 2\qquad\quad$ Người dùng & \multicolumn{2}{l}{Gửi yêu cầu đăng nhập} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra thông tin đăng nhập} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Điều hướng đến trang chính}\\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 3.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin đăng nhập sai} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
 
-  \paragraph{Dành cho sinh viên:}
+  \begin{table}[ht]
+    \centering
+    \caption{Đăng xuất}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \textbf{Tên use case:} Đăng xuất & \multicolumn{2}{l}{\textbf{ID:} common02} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính:} Tất cả} \\
+      \hline
+      \textbf{Mức độ quan trọng:} trung bình & \multicolumn{2}{l}{\textbf{Loại use case:} hệ thống} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Mô tả: }Rời khỏi hệ thống} \\
+      \hline
+      \multicolumn{3}{p{0.95\textwidth}}{
+        \textbf{Điều kiện khởi phát: }Người dùng yêu cầu đăng xuất
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      }\\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Người dùng & \multicolumn{2}{l}{Chọn đăng xuất} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Xóa session/cookie} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  
+  \begin{table}[ht]
+    \centering
+    \caption{Sửa thông tin tài khoản}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Sửa thông tin tài khoản} & \textbf{ID: }common03 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }Tất cả} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }hệ thống} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Mô tả: }Sửa các thông tin như \textit{thông tin cá nhân}, \textit{email}, \textit{mật khẩu}, \ldots} \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Điều kiện khởi phát: }Người dùng truy cập trang chỉnh sửa thông tin tài khoản
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Người dùng & \multicolumn{2}{l}{Nhập lại những thông tin cần chỉnh sửa} \\
+      \hline
+      $\quad 2\qquad\quad$ Người dùng & \multicolumn{2}{l}{Gửi yêu cầu sửa} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra tính hợp lý của thông tin mới} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Cập nhật thông tin mới} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
 
-  \paragraph{Dành cho chuyên viên:}
+  \newpage
+  \subsubsection*{Dành cho quản trị hệ thống}
+  
+  \begin{table}[ht]
+    \centering
+    \caption{Đóng/mở hệ thống cho giảng viên}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Đóng/mở hệ thống cho giảng viên} & \textbf{ID: }sa01 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }cao & \multicolumn{2}{l}{\textbf{Loại use case: }hệ thống} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Mô tả: }Cho phép giảng viên chọn lớp} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị viên chọn chức năng} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad$ Thực hiện bởi & Hành động \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Chọn chức năng đóng hoặc mở hệ thống đối với\\ giảng viên}
+      } \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Đóng hệ thống đối với các tác nhân khác} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 1.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Đóng hệ thống đối với giảng viên} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
 
-  \paragraph{Dành cho giảng viên:}
+  \begin{table}[ht]
+    \centering
+    \caption{Đóng/mở hệ thống cho chuyên viên}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{
+        \textbf{Tên use case: }Đóng/mở hệ thống cho chuyên viên
+      } & \textbf{ID: }sa02 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }cao & \multicolumn{2}{l}{\textbf{Loại use case: }hệ thống} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Cho phép chuyên viên thực hiện đăng ký lớp học/chỉnh sửa đăng ký giúp\\ sinh viên
+        }
+      }\\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Điều kiện khởi phát: }Quản trị viên chọn chức năng}
+        } \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      }\\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{Chọn chức năng đóng hoặc mở hệ thống đối với\\ chuyên viên}} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Đóng hệ thống đối với giảng viên} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Mở hệ thống đối với chuyên viên} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 1.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Đóng hệ thống đối với chuyên viên} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+
+  \begin{table}[ht]
+    \centering
+    \caption{Đóng/mở hệ thống cho sinh viên}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{
+        \textbf{Tên use case: }Đóng/mở hệ thống cho sinh viên
+      } & \textbf{ID: }sa03 \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Tác nhân chính: } quản trị hệ thống
+      } \\
+      \hline
+      \textbf{Mức độ quan trọng: }cao & \multicolumn{2}{l}{\textbf{Loại use case: }hệ thống} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Cho phép sinh viên đăng ký lớp học
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Điều kiện khởi phát: }Quản trị viên chọn chức năng
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      }\\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}}\\
+      \hline
+      TT $\quad\qquad$ Thực hiện bởi & Hành động \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Chọn chức năng đóng hoặc mở hệ thống đối với\\
+          sinh viên
+        }
+      } \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Đóng hệ thống đối với giảng viên} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Mở hệ thống đối với sinh viên} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 1.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Đóng hệ thống đối với sinh viên} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+
+  \newpage
+  \subsubsection*{Dành cho sinh viên}
+
+  \newpage
+  \subsubsection*{Dành cho chuyên viên}
+
+  \newpage
+  \subsubsection*{Dành cho giảng viên}
 
   \subsection{Sơ đồ hoạt động}
 
@@ -232,12 +505,6 @@
   \subsection{Xác định thuộc tính}
 
   \subsection{Xác định phương thức}
-
-  % \begin{figure}[!htb]
-  %   \centering
-  %   \includegraphics[]{}
-  %   \caption{Sơ đồ lớp}
-  % \end{center}
 
 \section{Phân tích động}
 
