@@ -1,5 +1,5 @@
-\documentclass{article}
-\usepackage[top=20mm, left=40mm, right=40mm, bottom=20mm]{geometry}
+\documentclass[12pt]{article}
+\usepackage[top=20mm, left=35mm, right=35mm, bottom=20mm]{geometry}
 \usepackage[utf8]{vietnam}
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -13,9 +13,9 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{placeins}
 \usepackage{url}
 \usepackage{cases}
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 
 \title{\textbf{Phân tích thiết kế hệ thống "Đăng ký môn học"}}
@@ -25,8 +25,6 @@
 \date{\today}
 
 \begin{document}
-
-\listoftables
 
 \maketitle
 
@@ -156,6 +154,12 @@
     \end{itemize}
   
   \subsection{Điều kiện ràng buộc}
+    \paragraph{Đối với quản trị hệ thống:}
+    \begin{itemize}
+      \item Không được xóa môn học đã có lớp.
+      \item Không được xóa lớp học đã có sinh viên đăng ký.
+    \end{itemize}
+
     \paragraph{Đối với sinh viên và chuyên viên:}
     \begin{itemize}
       \item Không đăng ký quá 2 môn giáo dục thể chất.
@@ -174,52 +178,66 @@
 
   \subsection{Các sơ đồ use case}
 
-  \begin{figure}[!htb]
+  \FloatBarrier
+  \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.4]{../pictures/projectdiagrams/uc.jpg}
     \caption{Sơ đồ use case tổng quan}
   \end{figure}
+  \FloatBarrier
 
   \paragraph{
     \textnormal{Do khả năng tận dụng diện tích có hạn nên một số use case được thể hiện trong các sơ đồ use case phân rã như dưới đây}
   }
-  \clearpage
 
-  \begin{figure}[!htb]
+  \FloatBarrier
+  \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.5]{../pictures/projectdiagrams/Register-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case đăng ký môn học}
   \end{figure}
+  \FloatBarrier
 
-  \begin{figure}[!htb]
+  \FloatBarrier
+  \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Users-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case quản lý người dùng}
   \end{figure}
+  \FloatBarrier
 
-  \begin{figure}[!htb]
+  \FloatBarrier
+  \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Subjects-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case quản lý môn học}
   \end{figure}
+  \FloatBarrier
 
-  \begin{figure}[!htb]
+  \FloatBarrier
+  \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Classes-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case quản lý lớp học}
   \end{figure}
+  \FloatBarrier
 
-  \begin{figure}[!htb]
+  \FloatBarrier
+  \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.5]{../pictures/projectdiagrams/Choose-Student-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case chọn sinh viên}
   \end{figure}
+  \FloatBarrier
 
-  \clearpage % use this instead of \newpage or \pagebreak
+  \newpage
   \subsection{Đặc tả use case dưới dạng bảng}
 
-  \subsubsection*{Các use case chung}
+  \subsubsection*{Use case chung}
 
+  % Đăng nhập
+  % common01
+  \FloatBarrier
   \begin{table}[ht]
     \centering
     \caption{\textbf{Đăng nhập}}
@@ -262,7 +280,11 @@
       \bottomrule
     \end{tabularx}
   \end{table}
+  \FloatBarrier
 
+  % Đăng xuất
+  % common02
+  \FloatBarrier
   \begin{table}[ht]
     \centering
     \caption{Đăng xuất}
@@ -297,7 +319,11 @@
       \bottomrule
     \end{tabularx}
   \end{table}
-  
+  \FloatBarrier
+
+  % Sửa thông tin tài khoản
+  % common03
+  \FloatBarrier
   \begin{table}[ht]
     \centering
     \caption{Sửa thông tin tài khoản}
@@ -336,10 +362,12 @@
       \bottomrule
     \end{tabularx}
   \end{table}
-
-  \newpage
-  \subsubsection*{Dành cho quản trị hệ thống}
+  \FloatBarrier
   
+  \subsubsection*{Quản trị hệ thống}
+  % Đóng/mở hệ thống cho giảng viên
+  % sa01
+  \FloatBarrier
   \begin{table}[ht]
     \centering
     \caption{Đóng/mở hệ thống cho giảng viên}
@@ -379,7 +407,11 @@
       \bottomrule
     \end{tabularx}
   \end{table}
+  \FloatBarrier
 
+  % Đóng/mở hệ thống cho chuyên viên
+  % sa02
+  \FloatBarrier
   \begin{table}[ht]
     \centering
     \caption{Đóng/mở hệ thống cho chuyên viên}
@@ -428,7 +460,11 @@
       \bottomrule
     \end{tabularx}
   \end{table}
+  \FloatBarrier
 
+  % Đóng/mở hệ thống cho sinh viên
+  % sa03
+  \FloatBarrier
   \begin{table}[ht]
     \centering
     \caption{Đóng/mở hệ thống cho sinh viên}
@@ -482,15 +518,782 @@
       \bottomrule
     \end{tabularx}
   \end{table}
+  \FloatBarrier
 
-  \newpage
-  \subsubsection*{Dành cho sinh viên}
+  %% Quản lý người dùng
 
-  \newpage
-  \subsubsection*{Dành cho chuyên viên}
+  % Tìm kiếm người dùng
+  % sa04
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Tìm kiếm người dùng}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{
+        \textbf{Tên use case: }Tìm kiếm người dùng
+      } & \textbf{ID: }sa04 \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Tác nhân chính: }quản trị hệ thống
+      } \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Tìm kiếm người dùng dựa trên các thuộc tính như \textit{từ khóa}, \textit{chức vụ}, \ldots}
+      }\\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Điều kiện khởi phát: }Quản trị viên sử dụng form tìm kiếm người dùng
+      }\\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}}\\
+      \hline
+      TT $\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Nhập thông tin tìm kiếm
+        }
+      } \\
+      \hline
+      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu tìm kiếm} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Tìm kiếm dựa trên thông tin yêu cầu} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị kết quả tìm kiếm} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
 
-  \newpage
-  \subsubsection*{Dành cho giảng viên}
+  % Xem thông tin người dùng
+  % sa05
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Xem thông tin người dùng}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Xem thông tin người dùng} & \textbf{ID: }sa05 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }thấp & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }xem tất cả thông tin của người dùng hệ thống (trừ mật khẩu, mật khẩu\\ được băm)
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một người dùng cụ thể} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị tất cả thông tin về người dùng}\\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Tạo người dùng mới
+  % sa06
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Tạo người dùng mới}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Xem thông tin người dùng} & \textbf{ID: }sa06 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Tạo một tài khoản mới
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống truy cập trang tạo người dùng mới} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Nhập thông tin cho tài khoản mới, gồm: \\
+          -- Mã người dùng. \\
+          -- Chức vụ trong hệ thống (giảng viên, chuyên viên, sinh viên) \\
+          -- Họ tên. \\
+          -- Giới tính. \\
+          -- Năm sinh. \\
+          -- \ldots
+        }
+      } \\
+      \hline
+      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu tạo tài khoản} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra trùng lặp} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra tính hợp lệ} \\
+      \hline
+      $\quad 5\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Tạo tài khoản mới} \\
+      \hline
+      $\quad 6\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo tạo tài khoản thành công} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 3.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin bị trùng lặp} \\
+      \hline
+      $\ 4.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin không hợp lệ} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Chỉnh sửa thông tin người dùng
+  % sa07
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Sửa thông tin người dùng}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Sửa thông tin người dùng} & \textbf{ID: }sa07 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }Quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Sửa một số thông tin của người dùng
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một người dùng cụ thể} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Chọn chức năng sửa} \\
+      \hline
+      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Nhập lại những thông tin cần sửa} \\
+      \hline
+      $\quad 3\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu sửa} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra trùng lặp} \\
+      \hline
+      $\quad 5\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra tính hợp lệ} \\
+      \hline
+      $\quad 6\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Cập nhật thông tin mới} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 4.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo trùng lặp} \\
+      \hline
+      $\ 5.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin không hợp lệ} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Xóa người dùng
+  % sa08
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Xoá người dùng}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Xóa người dùng} & \textbf{ID: }sa08 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }thấp & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Xóa tất cả thông tin, những gì liên quan đến một người dùng cụ thể
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một người dùng cụ thể} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu xóa một tài khoản} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{\makecell[l]{
+        Xóa tài khoản và các thông tin liên quan
+      }} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo xóa thành công} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  %% Quản lý môn học
+
+  % Tìm kiếm môn học
+  % sa09
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Tìm kiếm môn học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{
+        \textbf{Tên use case: }Tìm kiếm môn học
+      } & \textbf{ID: }sa09 \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Tác nhân chính: }quản trị hệ thống
+      } \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Tìm kiếm môn học dựa trên các thuộc tính như \textit{từ khóa}, \textit{khoa}, \ldots}
+      }\\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Điều kiện khởi phát: }Quản trị viên sử dụng form tìm kiếm môn học
+      }\\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}}\\
+      \hline
+      TT $\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Nhập thông tin tìm kiếm
+        }
+      } \\
+      \hline
+      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu tìm kiếm} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Tìm kiếm dựa trên thông tin yêu cầu} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị kết quả tìm kiếm} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Xem thông tin môn học
+  % sa10
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Xem thông tin môn học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Xem thông tin môn học} & \textbf{ID: }sa10 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }thấp & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Xem tất cả thông tin của môn học được chọn
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một môn học cụ thể} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị tất cả thông tin về môn học} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Tạo môn học mới
+  % sa11
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Tạo môn học mới}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Tạo môn học mới} & \textbf{ID: }sa11 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Tạo một môn học mới
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống truy cập trang tạo môn học mới} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Nhập thông tin cho môn học mới} \\
+      \hline
+      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu tạo môn học} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra trùng lặp} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra tính hợp lệ} \\
+      \hline
+      $\quad 5\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Tạo môn học mới} \\
+      \hline
+      $\quad 6\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo tạo môn học thành công} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 3.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin bị trùng lặp} \\
+      \hline
+      $\ 4.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin không hợp lệ} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Chỉnh sửa thông tin môn học
+  % sa12
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Sửa thông tin môn học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Sửa thông tin môn học} & \textbf{ID: }sa12 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }Quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Sửa một số thông tin của môn học được chọn
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một môn học cụ thể} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Chọn chức năng sửa} \\
+      \hline
+      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Nhập lại những thông tin cần sửa} \\
+      \hline
+      $\quad 3\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu sửa} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra trùng lặp} \\
+      \hline
+      $\quad 5\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra tính hợp lệ} \\
+      \hline
+      $\quad 6\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Cập nhật thông tin mới} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 4.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo trùng lặp} \\
+      \hline
+      $\ 5.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin không hợp lệ} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Xóa môn học
+  % sa13
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Xoá môn học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Xóa môn học} & \textbf{ID: }sa13 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }thấp & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Xóa một môn học cụ thể
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một môn học cụ thể} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu xóa một môn học} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{\makecell[l]{
+        Xóa tài khoản và các thông tin liên quan
+      }} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo xóa thành công} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 1.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo không được xóa môn học đã có lớp} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+
+  % Quản lý lớp học
+  % Tìm kiếm lớp học
+  % sa14
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Tìm kiếm lớp học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{
+        \textbf{Tên use case: }Tìm kiếm lớp học
+      } & \textbf{ID: }sa14 \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Tác nhân chính: }quản trị hệ thống
+      } \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Tìm kiếm lớp học dựa trên các thuộc tính như \textit{từ khóa}, \textit{môn học}, \ldots}
+      }\\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Điều kiện khởi phát: }Quản trị viên sử dụng form tìm kiếm lớp học
+      }\\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}}\\
+      \hline
+      TT $\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Nhập thông tin tìm kiếm
+        }
+      } \\
+      \hline
+      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu tìm kiếm} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Tìm kiếm lớp học dựa trên thông tin yêu cầu} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị kết quả tìm kiếm} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Xem thông tin lớp học
+  % sa15
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Xem thông tin lớp học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Xem thông tin lớp học} & \textbf{ID: }sa14 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }thấp & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Xem tất cả thông tin của môn học được chọn
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một môn học cụ thể} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị tất cả thông tin về môn học} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Tạo lớp học mới
+  % sa16
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Tạo lớp học mới}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Tạo lớp học mới} & \textbf{ID: }sa15 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Tạo một lớp học mới
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống truy cập trang tạo lớp học mới} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Nhập thông tin cho lớp học mới, gồm:\\
+          -- Tên lớp học.\\
+          -- Môn học.\\
+          -- Thời khóa biểu.\\
+          -- Phòng học.\\
+          -- Các buổi lý thuyết, thực hành (nếu có)
+        }
+      } \\
+      \hline
+      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu tạo lớp học} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra trùng lặp} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra tính hợp lệ} \\
+      \hline
+      $\quad 5\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Tạo lớp học mới} \\
+      \hline
+      $\quad 6\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo tạo lớp học thành công} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 3.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin bị trùng lặp} \\
+      \hline
+      $\ 4.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin không hợp lệ} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Chỉnh sửa thông tin lớp học
+  % sa17
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Sửa thông tin lớp học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Sửa thông tin lớp học} & \textbf{ID: }sa16 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Sửa một số thông tin của lớp học được chọn
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một lớp học cụ thể} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Chọn chức năng sửa} \\
+      \hline
+      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Nhập lại những thông tin cần sửa} \\
+      \hline
+      $\quad 3\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu sửa} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra trùng lặp} \\
+      \hline
+      $\quad 5\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra tính hợp lệ} \\
+      \hline
+      $\quad 6\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Cập nhật thông tin mới} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 4.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo trùng lặp} \\
+      \hline
+      $\ 5.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin không hợp lệ} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Xóa lớp học
+  % sa18
+  \FloatBarrier
+  \begin{table}[ht]
+    \centering
+    \caption{Xoá môn học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Xóa lớp học} & \textbf{ID: }sa18 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
+      \hline
+      \textbf{Mức độ quan trọng: }thấp & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Mô tả: }Xóa một lớp học cụ thể
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một lớp học cụ thể} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu xóa một lớp học} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Xóa lớp học} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo xóa thành công} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 1.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{Thông báo không được xóa lớp học đã có sinh\\ viên đăng ký}
+      } \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
 
   \subsection{Sơ đồ hoạt động}
 
@@ -509,5 +1312,10 @@
 \section{Phân tích động}
 
   \subsection{Sơ đồ tuần tự}
+
+\begin{thebibliography}{9}
+  \bibitem{1}
+  \bibitem{2}
+\end{thebibliography}
 
 \end{document}
