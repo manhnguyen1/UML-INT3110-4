@@ -17,7 +17,6 @@
 \usepackage{url}
 \usepackage{cases}
 
-
 \title{\textbf{Phân tích thiết kế hệ thống "Đăng ký môn học"}}
 \author{
   Ngô Quang Dương
@@ -125,6 +124,7 @@
       \item Tìm kiếm sinh viên.
       \item Xem thông tin sinh viên.
       \item Chọn sinh viên (để thực hiện việc đăng ký môn học)
+      \item Nhập điểm.
       \begin{itemize}
         \item Đăng ký môn học mới.
         \item Hủy môn học đã chọn.
@@ -234,7 +234,7 @@
   \newpage
   \subsection{Đặc tả use case dưới dạng bảng}
 
-  \subsubsection*{Use case chung}
+  \subsubsection{Use case chung}
 
   % Đăng nhập
   % common01
@@ -365,7 +365,7 @@
   \end{table}
   \FloatBarrier
   
-  \subsubsection*{Quản trị hệ thống}
+  \subsubsection{Quản trị hệ thống}
   % Đóng/mở hệ thống cho giảng viên
   % sa01
   \FloatBarrier
@@ -653,7 +653,7 @@
         \makecell[l]{
           Nhập thông tin cho tài khoản mới, gồm: \\
           -- Mã người dùng. \\
-          -- Chức vụ trong hệ thống (giảng viên, chuyên viên, sinh viên) \\
+          -- Chức vụ trong hệ thống (giảng viên,\\chuyên viên, sinh viên) \\
           -- Họ tên. \\
           -- Giới tính. \\
           -- Năm sinh. \\
@@ -1296,7 +1296,7 @@
   \end{table}
   \FloatBarrier
 
-  \subsubsection*{Dành cho giảng viên}
+  \subsubsection{Dành cho giảng viên}
   \paragraph{\textnormal{
     Giảng viên cũng có use case \textit{tìm kiếm lớp học} và \textit{xem thông tin lớp học} như của quản trị hệ thống, với đặc tả hoàn toàn tương tự.
   }}
@@ -1430,6 +1430,211 @@
       TT $\quad\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
       \hline
       $\quad 1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị danh sách lớp đã nhận} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  \subsubsection{Dành cho sinh viên}
+
+  \paragraph{\textnormal{
+    Các use case \textit{tìm kiếm môn học}, \textit{xem thông tin môn học}, \textit{tìm kiếm lớp học}, \textit{xem thông tin lớp học} tương tự như các use case đối với quản trị hệ thống.
+  }}
+  
+  \paragraph{\textnormal{Còn use case \textit{tìm kiếm giảng viên} và \textit{xem thông tin giảng} viên tương tự như use case \textit{tìm kiếm người dùng} nhưng bị giới hạn chỉ tìm \textit{giảng viên}.
+  }}
+
+  % Đăng ký lớp học mới
+  % student01
+  \FloatBarrier
+  \begin{table}
+    \centering
+    \caption{Đăng ký lóp học mới}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Đăng ký lớp học mới}} & \textbf{ID: }student01 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }sinh viên} \\
+      \hline
+      \textbf{Mức độ quan trọng: }cao & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Mô tả: }Sinh viên đăng ký lớp học} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Sinh viên chọn một lớp học} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\quad\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Sinh viên & \multicolumn{2}{l}{Gửi yêu cầu đăng ký lớp học} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra thời khoá biểu các lớp đã đăng ký} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra lượng sinh viên đã đăng ký} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra kết quả học tập} \\
+      \hline
+      $\quad 5\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo đăng ký thành công} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
+      \hline
+      $\ 2.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo trùng thời khoá biểu} \\
+      \hline
+      $\ 3.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo lớp đã có đủ sinh viên} \\
+      \hline
+      $\ 4.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{
+        \makecell[l]{
+          Thông báo kết quả học tập không đủ thấp để\\
+          học lại
+        }
+      } \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Huỷ đăng ký lớp học
+  % student02
+  \FloatBarrier
+  \begin{table}
+    \centering
+    \caption{Huỷ đăng ký lớp học}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{
+        \textbf{Tên use case: }Huỷ đăng ký lớp học
+      } & \textbf{ID: }student02 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }Sinh viên} \\
+      \hline
+      \textbf{Mức độ quan trọng: }cao & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Mô tả: }Huỷ đăng ký một lớp học đã chọn
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \textbf{Điều kiện khởi phát: }Sinh viên chọn một lớp học cụ thể
+      } \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\quad\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Sinh viên & \multicolumn{2}{l}{Yêu cầu huỷ đăng ký một lớp học đã chọn} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Xoá khỏi danh sách lớp đăng ký} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo huỷ đăng ký lớp thành công} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  % Xem danh sách lớp đã đăng ký
+  % student03
+  \FloatBarrier
+  \begin{table}
+    \centering
+    \caption{Xem danh sách lớp đã đăng ký}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{
+        \makecell[l]{
+          \textbf{Tên use case: }Xem danh sách \\
+          lớp học đã đăng ký
+        }
+      } & \textbf{ID: }student03 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }Sinh viên} \\
+      \hline
+      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Mô tả: }Xem danh sách lớp đã đăng ký} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Sinh viên truy cập trang đăng ký} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:} \\
+          -- Phụ thuộc vào use case đăng nhập.
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\quad\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị các lớp học đã đăng ký} \\
+      \bottomrule
+    \end{tabularx}
+  \end{table}
+  \FloatBarrier
+
+  \subsubsection{Dành cho chuyên viên}
+
+  \paragraph{\textnormal{
+    Đối với \textit{chuyên viên}, hai use case \textit{tìm kiếm sinh viên} và \textit{xem thông tin sinh viên} tương tự như use case \textit{tìm kiếm người dùng} của \textit{quản trị hệ thống}, tuy nhiên chỉ giới hạn phạm vi tìm kiếm các sinh viên.
+  }}
+
+  \paragraph{\textnormal{
+    Các use case quan trọng khác của chuyên viên bao gồm \textit{tìm kiếm lớp học}, \textit{đăng ký lớp học mới}, \textit{huỷ đăng ký lớp đã chọn}, \textit{xem danh sách lớp đã đăng ký} -- tương tự như các use case cùng tên dành cho \textit{sinh viên}.
+  }}
+
+  \paragraph{\textnormal{
+    Ngoài ra, chuyên viên có thêm use case \textit{nhập điểm}:
+  }}
+
+  % Nhập điểm
+  % specialist01
+  \FloatBarrier
+  \begin{table}
+    \centering
+    \caption{Nhập điểm}
+    \begin{tabularx}{\textwidth}{lXX}
+      \toprule
+      \multicolumn{2}{l}{\textbf{Tên use case: }Nhập điểm} & \textbf{ID: }specialist01 \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Tác nhân chính: }Chuyên viên} \\
+      \hline
+      \textbf{Mức độ quan trọng: }cao & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Mô tả: }Nhập điểm cho sinh viên} \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Chuyên viên xem kết quả học tập của sinh viên} \\
+      \hline
+      \multicolumn{3}{l}{
+        \makecell[l]{
+          \textbf{Quan hệ với các use case khác:}\\
+          -- Phụ thuộc vào use case đăng nhập
+        }
+      } \\
+      \hline
+      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
+      \hline
+      TT $\quad\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
+      \hline
+      $\quad 1\qquad\quad$ Chuyên viên & \multicolumn{2}{l}{Chọn một môn học} \\
+      \hline
+      $\quad 2\qquad\quad$ Chuyên viên & \multicolumn{2}{l}{Nhập điểm} \\
+      \hline
+      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Lưu điểm} \\
+      \hline
+      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị lại kết quả} \\
       \bottomrule
     \end{tabularx}
   \end{table}
