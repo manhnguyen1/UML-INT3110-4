@@ -124,7 +124,6 @@
       \item Tìm kiếm sinh viên.
       \item Xem thông tin sinh viên.
       \item Chọn sinh viên (để thực hiện việc đăng ký môn học)
-      \item Nhập điểm.
       \begin{itemize}
         \item Đăng ký môn học mới.
         \item Hủy môn học đã chọn.
@@ -1594,51 +1593,6 @@
   \paragraph{\textnormal{
     Các use case quan trọng khác của chuyên viên bao gồm \textit{tìm kiếm lớp học}, \textit{đăng ký lớp học mới}, \textit{huỷ đăng ký lớp đã chọn}, \textit{xem danh sách lớp đã đăng ký} -- tương tự như các use case cùng tên dành cho \textit{sinh viên}.
   }}
-
-  \paragraph{\textnormal{
-    Ngoài ra, chuyên viên có thêm use case \textit{nhập điểm}:
-  }}
-
-  % Nhập điểm
-  % specialist01
-  \FloatBarrier
-  \begin{table}
-    \centering
-    \caption{Nhập điểm}
-    \begin{tabularx}{\textwidth}{lXX}
-      \toprule
-      \multicolumn{2}{l}{\textbf{Tên use case: }Nhập điểm} & \textbf{ID: }specialist01 \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Tác nhân chính: }Chuyên viên} \\
-      \hline
-      \textbf{Mức độ quan trọng: }cao & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Mô tả: }Nhập điểm cho sinh viên} \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Chuyên viên xem kết quả học tập của sinh viên} \\
-      \hline
-      \multicolumn{3}{l}{
-        \makecell[l]{
-          \textbf{Quan hệ với các use case khác:}\\
-          -- Phụ thuộc vào use case đăng nhập
-        }
-      } \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
-      \hline
-      TT $\quad\qquad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
-      \hline
-      $\quad 1\qquad\quad$ Chuyên viên & \multicolumn{2}{l}{Chọn một môn học} \\
-      \hline
-      $\quad 2\qquad\quad$ Chuyên viên & \multicolumn{2}{l}{Nhập điểm} \\
-      \hline
-      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Lưu điểm} \\
-      \hline
-      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị lại kết quả} \\
-      \bottomrule
-    \end{tabularx}
-  \end{table}
-  \FloatBarrier
 
   \subsection{Sơ đồ hoạt động}
 
