@@ -1,5 +1,5 @@
-\documentclass[12pt]{article}
-\usepackage[top=20mm, left=35mm, right=35mm, bottom=20mm]{geometry}
+\documentclass[12pt]{book}
+\usepackage[top=30mm, left=40mm, right=30mm, bottom=30mm]{geometry}
 \usepackage[utf8]{vietnam}
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -17,7 +17,7 @@
 \usepackage{url}
 \usepackage{cases}
 
-\title{\textbf{Phân tích thiết kế hệ thống "Đăng ký môn học"}}
+\title{\textbf{Phân tích thiết kế hệ thống "Đăng ký lớp học"}}
 \author{
   Ngô Quang Dương
 }
@@ -27,22 +27,19 @@
 
 \maketitle
 
-\begin{abstract}
-\end{abstract}
-
 \tableofcontents
 
-\section{Mở đầu}
+\chapter{Mở đầu}
 
-  \subsection{Đặt vấn đề}
+  \section{Đặt vấn đề}
 
-  \subsection{Hệ thống hiện tại}
+  \section{Hệ thống hiện tại}
 
-  \subsection{Hướng giải quyết}
+  \section{Hướng giải quyết}
 
-\section{Thu thập và phân tích yêu cầu}
+\chapter{Thu thập và phân tích yêu cầu}
   
-  \subsection{Bảng thuật ngữ}
+  \section{Bảng thuật ngữ}
     \begin{itemize}
       \item \textbf{Người dùng}: Những người có tài khoản trong hệ thống đăng ký môn học.
       \item \textbf{Sinh viên}: Những người theo học tại trường. Sinh viên theo học một khoa nào đó.
@@ -55,7 +52,7 @@
       \item \textbf{Buổi thực hành}: Một lớp học có thể có nhiều hoặc không có buổi thực hành nào.
     \end{itemize}
   
-  \subsection{Tác nhân hệ thống}
+  \section{Tác nhân hệ thống}
     \begin{itemize}
       \item Quản trị hệ thống.
       \item Sinh viên.
@@ -63,7 +60,7 @@
       \item Giảng viên.
     \end{itemize}
   
-  \subsection{Yêu cầu chức năng}
+  \section{Yêu cầu chức năng}
     \paragraph{Chức năng chung:}
     \begin{itemize}
       \item Đăng nhập/đăng xuất.
@@ -139,7 +136,7 @@
       \item Xem danh sách các lớp đã nhận.
     \end{itemize}
 
-  \subsection{Yêu cầu phi chức năng}
+  \section{Yêu cầu phi chức năng}
     \paragraph{
       \textnormal{
         Qua khảo sát đối với người dùng là sinh viên, hệ thống cần được đáp ứng các yêu cầu sau:
@@ -152,7 +149,7 @@
       \item Dễ tìm kiếm môn học cần đăng ký.
     \end{itemize}
   
-  \subsection{Điều kiện ràng buộc}
+  \section{Điều kiện ràng buộc}
     \paragraph{Đối với quản trị hệ thống:}
     \begin{itemize}
       \item Không được xóa môn học đã có lớp.
@@ -174,9 +171,9 @@
       \item Chỉ được nhận lớp thuộc môn học ở khoa mà giảng viên đó giảng dạy.
     \end{itemize}
 
-\section{Đặc tả yêu cầu}
+\chapter{Đặc tả yêu cầu}
 
-  \subsection{Các sơ đồ use case}
+  \section{Các sơ đồ use case}
 
   \FloatBarrier
   \begin{figure}[ht]
@@ -231,9 +228,9 @@
   \FloatBarrier
 
   \newpage
-  \subsection{Đặc tả use case dưới dạng bảng}
+  \section{Đặc tả use case dưới dạng bảng}
 
-  \subsubsection{Use case chung}
+  \subsection{Use case chung}
 
   % Đăng nhập
   % common01
@@ -364,7 +361,7 @@
   \end{table}
   \FloatBarrier
   
-  \subsubsection{Quản trị hệ thống}
+  \subsection{Quản trị hệ thống}
   % Đóng/mở hệ thống cho giảng viên
   % sa01
   \FloatBarrier
@@ -1295,7 +1292,7 @@
   \end{table}
   \FloatBarrier
 
-  \subsubsection{Dành cho giảng viên}
+  \subsection{Dành cho giảng viên}
   \paragraph{\textnormal{
     Giảng viên cũng có use case \textit{tìm kiếm lớp học} và \textit{xem thông tin lớp học} như của quản trị hệ thống, với đặc tả hoàn toàn tương tự.
   }}
@@ -1434,7 +1431,7 @@
   \end{table}
   \FloatBarrier
 
-  \subsubsection{Dành cho sinh viên}
+  \subsection{Dành cho sinh viên}
 
   \paragraph{\textnormal{
     Các use case \textit{tìm kiếm môn học}, \textit{xem thông tin môn học}, \textit{tìm kiếm lớp học}, \textit{xem thông tin lớp học} tương tự như các use case đối với quản trị hệ thống.
@@ -1446,7 +1443,7 @@
   % Đăng ký lớp học mới
   % student01
   \FloatBarrier
-  \begin{table}
+  \begin{table}[ht]
     \centering
     \caption{Đăng ký lóp học mới}
     \begin{tabularx}{\textwidth}{lXX}
@@ -1502,7 +1499,7 @@
   % Huỷ đăng ký lớp học
   % student02
   \FloatBarrier
-  \begin{table}
+  \begin{table}[ht]
     \centering
     \caption{Huỷ đăng ký lớp học}
     \begin{tabularx}{\textwidth}{lXX}
@@ -1547,7 +1544,7 @@
   % Xem danh sách lớp đã đăng ký
   % student03
   \FloatBarrier
-  \begin{table}
+  \begin{table}[ht]
     \centering
     \caption{Xem danh sách lớp đã đăng ký}
     \begin{tabularx}{\textwidth}{lXX}
@@ -1584,33 +1581,154 @@
   \end{table}
   \FloatBarrier
 
-  \subsubsection{Dành cho chuyên viên}
+  \subsection{Dành cho chuyên viên}
 
   \paragraph{\textnormal{
     Đối với \textit{chuyên viên}, hai use case \textit{tìm kiếm sinh viên} và \textit{xem thông tin sinh viên} tương tự như use case \textit{tìm kiếm người dùng} của \textit{quản trị hệ thống}, tuy nhiên chỉ giới hạn phạm vi tìm kiếm các sinh viên.
   }}
 
   \paragraph{\textnormal{
-    Các use case quan trọng khác của chuyên viên bao gồm \textit{tìm kiếm lớp học}, \textit{đăng ký lớp học mới}, \textit{huỷ đăng ký lớp đã chọn}, \textit{xem danh sách lớp đã đăng ký} -- tương tự như các use case cùng tên dành cho \textit{sinh viên}.
+    Các use case quan trọng khác của chuyên viên bao gồm \textit{tìm kiếm lớp học}, \textit{đăng ký lớp học mới}, \textit{huỷ đăng ký lớp đã chọn}, \textit{xem danh sách lớp đã đăng ký} -- tương tự như các use case cùng tên dành cho \textit{sinh viên}. Tuy nhiên những use case này chỉ có thể thực hiện được khi đã chọn một sinh viên cụ thể.
   }}
 
-  \subsection{Sơ đồ hoạt động}
+  \section{Sơ đồ hoạt động}
 
-\section{Phân tích tĩnh}
+\chapter{Phân tích tĩnh}
 
-  \subsection{Xác định lớp}
+  \section{Lớp phân tích}
 
-  \subsection{Quan hệ giữa các lớp}
+    \subsection{Lớp thực thể (entity class)}
 
-  \subsection{Lớp phân tích}
+    \begin{itemize}
+      \item Người dùng.
+      \item Sinh viên.
+      \item Giảng viên.
+      \item Môn học.
+      \item Khoa.
+      \item Lớp học.
+    \end{itemize}
 
-  \subsection{Xác định thuộc tính}
+    \subsection{Lớp biên (boundary class)}
 
-  \subsection{Xác định phương thức}
+      \paragraph{\textnormal{
+        Dưới đây là các lớp biên được xác định cho từng tác nhân, kèm với đó là những chức năng mà lớp biên đó mang lại:
+      }}
 
-\section{Phân tích động}
+      \paragraph{Chung}
+      \begin{itemize}
+        \item ProfilePage.
+        \begin{itemize}
+          \item Hiển thị tất cả thông tin về người dùng.
+        \end{itemize}
+        \item ManageAccount.
+        \begin{itemize}
+          \item Chỉnh sửa thông tin cá nhân.
+        \end{itemize}
+      \end{itemize}
 
-  \subsection{Sơ đồ tuần tự}
+      \paragraph{Sinh viên}
+      \begin{itemize}
+        \item RegisterClass
+        \begin{itemize}
+          \item Tìm kiếm lớp học.
+          \item Xem thông tin lớp học.
+          \item Đăng ký lớp.
+          \item Huỷ đăng ký lớp.
+        \end{itemize}
+        \item SubjectInfo
+        \begin{itemize}
+          \item Tìm kiếm môn học.
+          \item Xem thông tin môn học.
+        \end{itemize}
+        \item LecturerInfo
+        \begin{itemize}
+          \item Tìm kiếm giảng viên.
+          \item Xem thông tin giảng viên.
+        \end{itemize}
+      \end{itemize}
+
+      \paragraph{Chuyên viên}
+      \begin{itemize}
+        \item StudentSelector
+        \begin{itemize}
+          \item Tìm kiếm sinh viên.
+          \item Xem thông tin sinh viên.
+          \item Chọn sinh viên (để thực hiện việc đăng ký)
+        \end{itemize}
+        \item RegisterForStudent
+        \begin{itemize}
+          \item Tìm kiếm lớp học.
+          \item Xem thông tin lớp học.
+          \item Đăng ký lớp.
+          \item Huỷ đăng ký lớp.
+        \end{itemize}
+      \end{itemize}
+
+      \paragraph{Giảng viên}
+      \begin{itemize}
+        \item ChooseClass
+        \begin{itemize}
+          \item Tìm kiếm lớp học.
+          \item Xem thông tin lớp học.
+          \item Nhận lớp.
+          \item Huỷ nhận lớp.
+          \item Xem danh sách lớp đã nhận.
+        \end{itemize}
+      \end{itemize}
+
+      \paragraph{Quản trị hệ thống}
+      \begin{itemize}
+        \item SystemController
+        \begin{itemize}
+          \item Đóng/mở hệ thống đối với sinh viên.
+          \item Đóng/mở hệ thống đối với chuyên viên.
+          \item Đóng/mở hệ thống đối với giảng viên.
+        \end{itemize}
+        \item CreateUser
+        \item EditUser
+        \item UserManager
+        \begin{itemize}
+          \item Tìm kiếm người dùng.
+          \item Xem thông tin người dùng.
+          \item Xoá người dùng.
+        \end{itemize}
+        \item CreateSubject
+        \item EditSubject
+        \item SubjectManager
+        \begin{itemize}
+          \item Tìm kiếm môn học.
+          \item Xem thông tin môn học.
+          \item Xoá môn học.
+          \item Chọn/bỏ chọn môn học.
+        \end{itemize}
+        \item CreateClass
+        \item EditClass
+        \item ClassManager
+        \begin{itemize}
+          \item Tìm kiếm lớp học.
+          \item Xem thông tin lớp học.
+          \item Xoá lớp học.
+        \end{itemize}
+      \end{itemize}
+
+    \subsection{Lớp điều khiển (control class)}
+
+  \section{Sơ đồ lớp}
+
+\chapter{Phân tích động}
+
+  \section{Sơ đồ tuần tự}
+
+  \section{Xác định thuộc tính và phương thức cho các lớp}
+
+  % \FloatBarrier
+  % \begin{figure}[ht]
+  %   \centering
+  %   \includegraphics[scale=0.5]{}
+  % \end{figure}
+  % \FloatBarrier
+
+\chapter{}
 
 \begin{thebibliography}{9}
   \bibitem{1}
