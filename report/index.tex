@@ -17,9 +17,14 @@
 \usepackage{url}
 \usepackage{cases}
 
-\title{\textbf{Phân tích thiết kế hệ thống "Đăng ký lớp học"}}
+\title{\textbf{Phân tích thiết kế hệ thống\\
+"Đăng ký lớp học"}}
 \author{
-  Ngô Quang Dương
+  Ngô Quang Dương \\
+  Hà Thế Lực \\
+  Nguyễn Thanh Tuyên \\
+  \\
+  \textbf{Giảng viên: }PGS.TS Trương Ninh Thuận
 }
 \date{\today}
 
@@ -37,7 +42,7 @@
 
   \section{Hướng giải quyết}
 
-\chapter{Thu thập và phân tích yêu cầu}
+\chapter{Thu thập yêu cầu}
   
   \section{Bảng thuật ngữ}
     \begin{itemize}
@@ -80,12 +85,6 @@
         \item Tạo người dùng mới.
         \item Chỉnh sửa thông tin.
         \item Xóa người dùng.
-      \end{itemize}
-      \item Quản lý môn học:
-      \begin{itemize}
-        \item Tạo môn học/lớp môn học mới.
-        \item Chỉnh sửa thông tin môn học/lớp môn học.
-        \item Xóa môn học/lớp môn học.
       \end{itemize}
       \item Quản lý lớp học:
       \begin{itemize}
@@ -196,14 +195,6 @@
     \centering
     \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Users-uc-destructing.jpg}
     \caption{Sơ đồ phân rã cho use case quản lý người dùng}
-  \end{figure}
-  \FloatBarrier
-
-  \FloatBarrier
-  \begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.5]{../pictures/projectdiagrams/Manage-Subjects-uc-destructing.jpg}
-    \caption{Sơ đồ phân rã cho use case quản lý môn học}
   \end{figure}
   \FloatBarrier
 
@@ -959,177 +950,17 @@
   \end{table}
   \FloatBarrier
 
-  %% Quản lý môn học
-
-  % Tạo môn học mới
-  % sa09
-  \FloatBarrier
-  \begin{table}[ht]
-    \centering
-    \caption{Tạo môn học mới}
-    \begin{tabularx}{\textwidth}{lXX}
-      \toprule
-      \multicolumn{2}{l}{\textbf{Tên use case: }Tạo môn học mới} & \textbf{ID: }sa09 \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
-      \hline
-      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
-      \hline
-      \multicolumn{3}{l}{
-        \makecell[l]{
-          \textbf{Mô tả: }Tạo một môn học mới
-        }
-      } \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống truy cập trang tạo môn học mới} \\
-      \hline
-      \multicolumn{3}{l}{
-        \makecell[l]{
-          \textbf{Quan hệ với các use case khác:} \\
-          -- Phụ thuộc vào use case đăng nhập
-        }
-      } \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
-      \hline
-      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
-      \hline
-      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Nhập thông tin cho môn học mới} \\
-      \hline
-      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu tạo môn học} \\
-      \hline
-      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra trùng lặp} \\
-      \hline
-      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra tính hợp lệ} \\
-      \hline
-      $\quad 5\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Tạo môn học mới} \\
-      \hline
-      $\quad 6\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo tạo môn học thành công} \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
-      \hline
-      $\ 3.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin bị trùng lặp} \\
-      \hline
-      $\ 4.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin không hợp lệ} \\
-      \bottomrule
-    \end{tabularx}
-  \end{table}
-  \FloatBarrier
-
-  % Chỉnh sửa thông tin môn học
-  % sa10
-  \FloatBarrier
-  \begin{table}[ht]
-    \centering
-    \caption{Sửa thông tin môn học}
-    \begin{tabularx}{\textwidth}{lXX}
-      \toprule
-      \multicolumn{2}{l}{\textbf{Tên use case: }Sửa thông tin môn học} & \textbf{ID: }sa10 \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Tác nhân chính: }Quản trị hệ thống} \\
-      \hline
-      \textbf{Mức độ quan trọng: }trung bình & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
-      \hline
-      \multicolumn{3}{l}{
-        \makecell[l]{
-          \textbf{Mô tả: }Sửa một số thông tin của môn học được chọn
-        }
-      } \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một môn học cụ thể} \\
-      \hline
-      \multicolumn{3}{l}{
-        \makecell[l]{
-          \textbf{Quan hệ với các use case khác:} \\
-          -- Phụ thuộc vào use case đăng nhập
-        }
-      } \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
-      \hline
-      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
-      \hline
-      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Chọn chức năng sửa} \\
-      \hline
-      $\quad 2\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Nhập lại những thông tin cần sửa} \\
-      \hline
-      $\quad 3\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu sửa} \\
-      \hline
-      $\quad 4\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra trùng lặp} \\
-      \hline
-      $\quad 5\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Kiểm tra tính hợp lệ} \\
-      \hline
-      $\quad 6\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Cập nhật thông tin mới} \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
-      \hline
-      $\ 4.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo trùng lặp} \\
-      \hline
-      $\ 5.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo thông tin không hợp lệ} \\
-      \bottomrule
-    \end{tabularx}
-  \end{table}
-  \FloatBarrier
-
-  % Xóa môn học
-  % sa11
-  \FloatBarrier
-  \begin{table}[ht]
-    \centering
-    \caption{Xoá môn học}
-    \begin{tabularx}{\textwidth}{lXX}
-      \toprule
-      \multicolumn{2}{l}{\textbf{Tên use case: }Xóa môn học} & \textbf{ID: }sa11 \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
-      \hline
-      \textbf{Mức độ quan trọng: }thấp & \multicolumn{2}{l}{\textbf{Loại use case: }nghiệp vụ} \\
-      \hline
-      \multicolumn{3}{l}{
-        \makecell[l]{
-          \textbf{Mô tả: }Xóa một môn học cụ thể
-        }
-      } \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Điều kiện khởi phát: }Quản trị hệ thống chọn một môn học cụ thể} \\
-      \hline
-      \multicolumn{3}{l}{
-        \makecell[l]{
-          \textbf{Quan hệ với các use case khác:} \\
-          -- Phụ thuộc vào use case đăng nhập
-        }
-      } \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Luồng hoạt động chính:}} \\
-      \hline
-      TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
-      \hline
-      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Gửi yêu cầu xóa một môn học} \\
-      \hline
-      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{\makecell[l]{
-        Xóa tài khoản và các thông tin liên quan
-      }} \\
-      \hline
-      $\quad 3\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo xóa thành công} \\
-      \hline
-      \multicolumn{3}{l}{\textbf{Luồng hoạt động con:}} \\
-      \hline
-      $\ 1.1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Thông báo không được xóa môn học đã có lớp} \\
-      \bottomrule
-    \end{tabularx}
-  \end{table}
-
   % Quản lý lớp học
 
   % Tạo lớp học mới
-  % sa12
+  % sa09
   \FloatBarrier
   \begin{table}[ht]
     \centering
     \caption{Tạo lớp học mới}
     \begin{tabularx}{\textwidth}{lXX}
       \toprule
-      \multicolumn{2}{l}{\textbf{Tên use case: }Tạo lớp học mới} & \textbf{ID: }sa12 \\
+      \multicolumn{2}{l}{\textbf{Tên use case: }Tạo lớp học mới} & \textbf{ID: }sa09 \\
       \hline
       \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
       \hline
@@ -1186,14 +1017,14 @@
   \FloatBarrier
 
   % Chỉnh sửa thông tin lớp học
-  % sa13
+  % sa10
   \FloatBarrier
   \begin{table}[ht]
     \centering
     \caption{Sửa thông tin lớp học}
     \begin{tabularx}{\textwidth}{lXX}
       \toprule
-      \multicolumn{2}{l}{\textbf{Tên use case: }Sửa thông tin lớp học} & \textbf{ID: }sa13 \\
+      \multicolumn{2}{l}{\textbf{Tên use case: }Sửa thông tin lớp học} & \textbf{ID: }sa10 \\
       \hline
       \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
       \hline
@@ -1241,14 +1072,14 @@
   \FloatBarrier
 
   % Xóa lớp học
-  % sa14
+  % sa11
   \FloatBarrier
   \begin{table}[ht]
     \centering
     \caption{Xoá môn học}
     \begin{tabularx}{\textwidth}{lXX}
       \toprule
-      \multicolumn{2}{l}{\textbf{Tên use case: }Xóa lớp học} & \textbf{ID: }sa14 \\
+      \multicolumn{2}{l}{\textbf{Tên use case: }Xóa lớp học} & \textbf{ID: }sa11 \\
       \hline
       \multicolumn{3}{l}{\textbf{Tác nhân chính: }quản trị hệ thống} \\
       \hline
@@ -1590,143 +1421,60 @@
     Các use case quan trọng khác của chuyên viên bao gồm \textit{tìm kiếm lớp học}, \textit{đăng ký lớp học mới}, \textit{huỷ đăng ký lớp đã chọn}, \textit{xem danh sách lớp đã đăng ký} -- tương tự như các use case cùng tên dành cho \textit{sinh viên}. Tuy nhiên những use case này chỉ có thể thực hiện được khi đã chọn một sinh viên cụ thể.
   }}
 
-\chapter{Phân tích tĩnh}
+
+  \chapter{Phân tích tĩnh, phân tích động}
 
   \section{Lớp phân tích}
 
     \subsection{Lớp thực thể (entity class)}
     \paragraph{\textnormal{
-      Ta xác định các lớp sau là các lớp thực thể, chứa dữ liệu:
+      Ta xác định các lớp sau là các lớp thực thể, chứa dữ liệu, đi kèm các thuộc tính:
     }}
 
     \begin{itemize}
-      \item Người dùng.
-      \item Sinh viên.
-      \item Giảng viên.
-      \item Môn học.
-      \item Lớp học.
+      \item \textbf{Người dùng}
+      \item \textbf{Sinh viên}
+      \item \textbf{Giảng viên}
+      \item \textbf{Môn học}
+      \item \textbf{Lớp học}
+      \item \textbf{Thời khoá biểu}
     \end{itemize}
 
     \subsection{Lớp biên (boundary class)}
+    \paragraph{\textnormal{
+      Dưới đây là các lớp biên cho từng tác nhân:
+    }}
 
-      \paragraph{\textnormal{
-        Dưới đây là các lớp biên được xác định cho từng tác nhân, kèm với đó là những chức năng mà lớp biên đó mang lại:
-      }}
+    \paragraph{Chung}
+    \begin{itemize}
+      \item \textbf{Form tìm môn học}
+      \item \textbf{Form tìm lớp học}
+      \item \textbf{Form đăng nhập}
+      \item \textbf{Form sửa thông tin}
+    \end{itemize}
 
-      \paragraph{Chung}
-      \begin{itemize}
-        \item ProfilePage.
-        \begin{itemize}
-          \item Hiển thị tất cả thông tin về người dùng.
-        \end{itemize}
-        \item ManageAccount.
-        \begin{itemize}
-          \item Chỉnh sửa thông tin cá nhân.
-        \end{itemize}
-      \end{itemize}
+    \paragraph{Quản trị hệ thống}
+    \begin{itemize}
+      \item \textbf{Form tìm người dùng}
+      \item \textbf{Form tạo người dùng}
+      \item \textbf{Form sửa người dùng}
+      \item \textbf{Form tạo lớp học}
+      \item \textbf{Form sửa lớp học}
+    \end{itemize}
 
-      \paragraph{Sinh viên}
-      \begin{itemize}
-        \item RegisterClass
-        \begin{itemize}
-          \item Tìm kiếm lớp học.
-          \item Xem thông tin lớp học.
-          \item Đăng ký lớp.
-          \item Huỷ đăng ký lớp.
-        \end{itemize}
-        \item SubjectInfo
-        \begin{itemize}
-          \item Tìm kiếm môn học.
-          \item Xem thông tin môn học.
-        \end{itemize}
-        \item LecturerInfo
-        \begin{itemize}
-          \item Tìm kiếm giảng viên.
-          \item Xem thông tin giảng viên.
-        \end{itemize}
-      \end{itemize}
+    \paragraph{Giảng viên}
 
-      \paragraph{Chuyên viên}
-      \begin{itemize}
-        \item StudentSelector
-        \begin{itemize}
-          \item Tìm kiếm sinh viên.
-          \item Xem thông tin sinh viên.
-          \item Chọn sinh viên (để thực hiện việc đăng ký)
-        \end{itemize}
-        \item RegisterForStudent
-        \begin{itemize}
-          \item Tìm kiếm lớp học.
-          \item Xem thông tin lớp học.
-          \item Đăng ký lớp.
-          \item Huỷ đăng ký lớp.
-        \end{itemize}
-      \end{itemize}
+    \paragraph{Chuyên viên}
 
-      \paragraph{Giảng viên}
-      \begin{itemize}
-        \item ChooseClass
-        \begin{itemize}
-          \item Tìm kiếm lớp học.
-          \item Xem thông tin lớp học.
-          \item Nhận lớp.
-          \item Huỷ nhận lớp.
-          \item Xem danh sách lớp đã nhận.
-        \end{itemize}
-      \end{itemize}
-
-      \paragraph{Quản trị hệ thống}
-      \begin{itemize}
-        \item SystemController
-        \begin{itemize}
-          \item Đóng/mở hệ thống đối với sinh viên.
-          \item Đóng/mở hệ thống đối với chuyên viên.
-          \item Đóng/mở hệ thống đối với giảng viên.
-        \end{itemize}
-        \item CreateUser
-        \item EditUser
-        \item UserManager
-        \begin{itemize}
-          \item Tìm kiếm người dùng.
-          \item Xem thông tin người dùng.
-          \item Xoá người dùng.
-        \end{itemize}
-        \item CreateSubject
-        \item EditSubject
-        \item SubjectManager
-        \begin{itemize}
-          \item Tìm kiếm môn học.
-          \item Xem thông tin môn học.
-          \item Xoá môn học.
-          \item Chọn/bỏ chọn môn học.
-        \end{itemize}
-        \item CreateClass
-        \item EditClass
-        \item ClassManager
-        \begin{itemize}
-          \item Tìm kiếm lớp học.
-          \item Xem thông tin lớp học.
-          \item Xoá lớp học.
-        \end{itemize}
-      \end{itemize}
+    \paragraph{Sinh viên}
 
     \subsection{Lớp điều khiển (control class)}
-      
-
-  \section{Sơ đồ lớp}
-
-\chapter{Phân tích động}
-
+    \begin{itemize}
+      \item \textbf{}
+    \end{itemize}
+  
   \section{Sơ đồ tuần tự}
 
-  \section{Xác định thuộc tính và phương thức cho các lớp}
-
-  % \FloatBarrier
-  % \begin{figure}[ht]
-  %   \centering
-  %   \includegraphics[scale=0.5]{}
-  % \end{figure}
-  % \FloatBarrier
 
 \chapter{}
 
