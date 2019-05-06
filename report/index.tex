@@ -224,7 +224,7 @@
   \FloatBarrier
   \begin{table}[ht]
     \centering
-    \caption{\textbf{Đăng nhập}}
+    \caption{Đăng nhập}
     \begin{tabularx}{\textwidth}{lXX}
       \toprule
       \textbf{Tên use case:} Đăng nhập & \multicolumn{2}{l}{\textbf{ID:} common01} \\
@@ -1422,7 +1422,9 @@
   }}
 
 
-  \chapter{Phân tích tĩnh, phân tích động}
+
+
+\chapter{Phân tích tĩnh, phân tích động}
 
   \section{Lớp phân tích}
 
@@ -1432,12 +1434,12 @@
     }}
 
     \begin{itemize}
-      \item \textbf{Người dùng}
-      \item \textbf{Sinh viên}
-      \item \textbf{Giảng viên}
-      \item \textbf{Môn học}
-      \item \textbf{Lớp học}
-      \item \textbf{Thời khoá biểu}
+      \item \textbf{CoursesDbContext}
+      \item \textbf{User}
+      \item \textbf{Student}
+      \item \textbf{Lecturer}
+      \item \textbf{Subject}
+      \item \textbf{Class}
     \end{itemize}
 
     \subsection{Lớp biên (boundary class)}
@@ -1447,36 +1449,82 @@
 
     \paragraph{Chung}
     \begin{itemize}
-      \item \textbf{Form tìm môn học}
-      \item \textbf{Form tìm lớp học}
-      \item \textbf{Form đăng nhập}
-      \item \textbf{Form sửa thông tin}
+      \item \textbf{SearchSubjectsForm}
+      \item \textbf{SearchClassesForm}
+      \item \textbf{SubjectInfo}
+      \item \textbf{ClassInfo}
+      \item \textbf{SignInForm}
+      \item \textbf{EditAccountForm}
     \end{itemize}
 
     \paragraph{Quản trị hệ thống}
     \begin{itemize}
-      \item \textbf{Form tìm người dùng}
-      \item \textbf{Form tạo người dùng}
-      \item \textbf{Form sửa người dùng}
-      \item \textbf{Form tạo lớp học}
-      \item \textbf{Form sửa lớp học}
+      \item \textbf{SystemStatusForm}
+      \item \textbf{SearchUserForm}
+      \item \textbf{CreateUserForm}
+      \item \textbf{UserInfo}
+      \item \textbf{EditUserForm}
+      \item \textbf{CreateClassForm}
     \end{itemize}
 
     \paragraph{Giảng viên}
+    \begin{itemize}
+      \item \textbf{SelectedClasses}
+    \end{itemize}
 
     \paragraph{Chuyên viên}
+    \begin{itemize}
+      \item \textbf{SearchStudentForm}
+      \item \textbf{StudentInfo}
+      \item \textbf{RegistrationForm}
+    \end{itemize}
 
     \paragraph{Sinh viên}
+    \begin{itemize}
+      \item \textbf{RegistrationForm}
+    \end{itemize}
 
     \subsection{Lớp điều khiển (control class)}
     \begin{itemize}
-      \item \textbf{}
+      \item \textbf{SignInController}
+      \item \textbf{SystemStatusController}
+      \item \textbf{ClassesController}
+      \item \textbf{UsersController}
+      \item \textbf{SubjectsController}
+      \item \textbf{LectureController}
+      \item \textbf{RegisterController}
     \end{itemize}
   
   \section{Sơ đồ tuần tự}
+  
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{../pictures/projectdiagrams/sequence/{"Sign In Sequence Diagram"}.jpg}
+    \label{sequence-diagram-common01}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Đăng nhập}}
+  \end{figure}
+  \FloatBarrier
 
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.5]{../pictures/projectdiagrams/sequence/{"Sign Out Sequence Diagram"}.jpg}
+    \label{sequence-diagram-common02}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Đăng xuất}}
+  \end{figure}
+  \FloatBarrier
 
-\chapter{}
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{../pictures/projectdiagrams/sequence/{"Edit Account Info Sequence Diagram"}.jpg}
+    \label{sequence-diagram-common03}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Sửa thông tin tài khoản}}
+  \end{figure}
+  \FloatBarrier
+
+\chapter{Thiết kế kiến trúc}
 
 \begin{thebibliography}{9}
   \bibitem{1}

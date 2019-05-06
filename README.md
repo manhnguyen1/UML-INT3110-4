@@ -12,8 +12,3 @@ Yêu cầu cho bài tập lớn là chọn một hệ thống để thực hiệ
 
 Trong *repository* này không có `code` mà thay vào đó là tài liệu. Tác giả sẽ trình bày những công đoạn trong việc phân tích thiết kế hệ thống đăng ký môn học, biểu diễn bằng văn bản và các sơ đồ **UML**.
 
-## Hướng dẫn đọc tài liệu
-
-Nếu bạn đọc chưa quen với việc phân tích thiết kế, hãy đọc file [chỉ dẫn UML](./guides/uml.pdf) để biết việc phân tích thiết kế gồm các giai đoạn nào và mỗi giai đoạn sẽ làm những công việc gì, sử dụng những sơ đồ **UML** như thế nào.
-
-Khi đã khá nắm được thì bạn đọc có thể xem quá trình phân tích thiết kế hệ thống đăng ký môn học ở [file báo cáo này](./project/index.pdf) mà không gặp quá nhiều khó khăn.
