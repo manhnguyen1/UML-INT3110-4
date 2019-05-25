@@ -1,5 +1,8 @@
 \documentclass[12pt]{book}
 \usepackage[top=30mm, left=40mm, right=30mm, bottom=30mm]{geometry}
+\usepackage[tc]{titlepic}
+\usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage[utf8]{vietnam}
 \usepackage{amsthm}
 \usepackage{amsmath}
@@ -16,19 +19,52 @@
 \usepackage{placeins}
 \usepackage{url}
 \usepackage{cases}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\newcommand\HRule{\rule{\textwidth}{1pt}}
 
-\title{\textbf{Phân tích thiết kế hệ thống\\
-"Đăng ký lớp học"}}
-\author{
-  Ngô Quang Dương \\
-  Hà Thế Lực \\
-  Nguyễn Thanh Tuyên \\
-  \\
-  \textbf{Giảng viên: }PGS.TS Trương Ninh Thuận
-}
-\date{\today}
+\title{}
+\author{}
+
+\date{}
 
 \begin{document}
+
+\begin{titlepage}
+
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw[line width = 4pt] ($(current page.north west) + (1in,-1in)$) rectangle ($(current page.south east) + (-1in,1in)$);
+  \end{tikzpicture}
+  
+  \begin{center}
+  
+  % Upper part of the page
+  {\Large Đại học công nghệ\\
+  Đại học quốc gia Hà Nội }\\[0.5cm]
+  \includegraphics[scale=0.3]{../pictures/3-VNU-UET.jpg}
+  
+  % Title
+  \HRule \\[0.4cm]
+  { \Large \bfseries Báo cáo bài tập lớn Công nghệ phần mềm \\
+    Đề tài: Hệ thống đăng ký lớp học
+  }\\[0.4cm]
+  
+  \HRule \\[4cm]
+  
+    \textbf{Giảng viên hướng dẫn:} \\
+    Đào Kiến Quốc \\[0.5cm]
+  
+    \textbf{Nhóm thực hiện:}\\
+    Nhóm 4 \\
+    Ngô Quang Dương 17020191\\
+    Lê Thuận Đức 16021270\\
+    Nguyễn Đình Thịnh 17021045\\
+  
+  \vfill
+  
+  \end{center}
+  
+  \end{titlepage}
 
 \maketitle
 
@@ -50,7 +86,7 @@
 
   \paragraph{\textnormal{Nhằm khắc phục những tồn đọng nói trên, và tiến đến một môi trường tương tác cao giữa giáo viên, sinh viên, quản trị viên một cách trực tiếp, hạn chế các thủ tục không cần thiết, nhu cầu về một website đăng ký lớp học là một nhu cầu cần thiết.}}
 
-  \section{Hệ thống hiện tại}
+  \section{Hệ thống hiện tại, định hướng giải quyết}
 
   \paragraph{\textnormal{Hiện tại, trường đại học quốc gia Hà Nội đã có một trang đăng ký lớp học nhưng còn tồn tại quá nhiều vấn đề bất cập như sau:}}
   \begin{itemize}
@@ -59,9 +95,8 @@
     \item Các môn học cũ hoặc đã học xong vẫn được hiển thị trên dashboard, không được tự động ẩn khiến cho dashboard của sinh viên cực kì lộn xộn, không được sắp xếp theo một thứ tự chung nào cả, ảnh hưởng đến công việc tìm kiếm rất nhiều và tốn diện tích hiển thị, khó quan sát được những môn mà sinh viên đang theo học hiện tại.
     \item Không có mô tả về nội dung môn học khiến cho một số tên môn học có tên gần giống nhau dễ gây nhầm lẫn đối với sinh viên muốn đăng ký, ví dụ như: \textit{kiến trúc phần mềm} với \textit{công nghệ phần mềm}, \textit{cơ sở dữ liệu} và \textit{hệ quản trị cơ sở dữ liệu}, \textit{phân tích thiết kế hướng đối tượng} và \textit{lập trình hướng đối tượng}, \ldots
   \end{itemize}
- 
 
-  \section{Hướng giải quyết}
+  \paragraph{\textnormal{Do đó, chúng em đề xuất một thiết kế cho hệ thống đăng ký lớp học, có bổ sung những tính năng nhằm khắc phục một số thiếu sót mà hệ thống hiện tại gặp phải.}}
 
 \chapter{Thu thập yêu cầu}
   
@@ -444,7 +479,9 @@
       \hline
       TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
       \hline
-      $\quad 1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị tất cả thông tin về môn học} \\
+      $\quad 1\qquad\quad$ Người dùng & \multicolumn{2}{l}{Chọn môn học} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị tất cả thông tin về môn học} \\
       \bottomrule
     \end{tabularx}
   \end{table}
@@ -537,7 +574,9 @@
       \hline
       TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
       \hline
-      $\quad 1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị tất cả thông tin về môn học} \\
+      $\quad 1\qquad\quad$ Người dùng & \multicolumn{2}{l}{Chọn lớp học} \\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị tất cả thông tin về lớp học} \\
       \bottomrule
     \end{tabularx}
   \end{table}
@@ -788,7 +827,9 @@
       \hline
       TT $\qquad\quad$ Thực hiện bởi & \multicolumn{2}{l}{Hành động} \\
       \hline
-      $\quad 1\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị tất cả thông tin về người dùng}\\
+      $\quad 1\qquad\quad$ Quản trị hệ thống & \multicolumn{2}{l}{Chọn người dùng}\\
+      \hline
+      $\quad 2\qquad\quad$ Hệ thống & \multicolumn{2}{l}{Hiển thị tất cả thông tin về người dùng}\\
       \bottomrule
     \end{tabularx}
   \end{table}
@@ -1266,85 +1307,12 @@
   }}
 
 
-
-
-\chapter{Phân tích tĩnh, phân tích động}
-
-  \section{Lớp phân tích}
-
-    \subsection{Lớp thực thể (entity class)}
-    \paragraph{\textnormal{
-      Ta xác định các lớp sau là các lớp thực thể, chứa dữ liệu, đi kèm các thuộc tính:
-    }}
-
-    \begin{itemize}
-      \item \textbf{CoursesDbContext}
-      \item \textbf{User}
-      \item \textbf{Student}
-      \item \textbf{Lecturer}
-      \item \textbf{Subject}
-      \item \textbf{Class}
-    \end{itemize}
-
-    \subsection{Lớp biên (boundary class)}
-    \paragraph{\textnormal{
-      Dưới đây là các lớp biên cho từng tác nhân:
-    }}
-
-    \paragraph{Chung}
-    \begin{itemize}
-      \item \textbf{SearchSubjectsForm}
-      \item \textbf{SearchClassesForm}
-      \item \textbf{SubjectInfo}
-      \item \textbf{ClassInfo}
-      \item \textbf{SignInForm}
-      \item \textbf{EditAccountForm}
-    \end{itemize}
-
-    \paragraph{Quản trị hệ thống}
-    \begin{itemize}
-      \item \textbf{SystemStatusForm}
-      \item \textbf{SearchUserForm}
-      \item \textbf{CreateUserForm}
-      \item \textbf{UserInfo}
-      \item \textbf{EditUserForm}
-      \item \textbf{CreateClassForm}
-    \end{itemize}
-
-    \paragraph{Giảng viên}
-    \begin{itemize}
-      \item \textbf{SelectedClasses}
-    \end{itemize}
-
-    \paragraph{Chuyên viên}
-    \begin{itemize}
-      \item \textbf{SearchStudentForm}
-      \item \textbf{StudentInfo}
-      \item \textbf{RegistrationForm}
-    \end{itemize}
-
-    \paragraph{Sinh viên}
-    \begin{itemize}
-      \item \textbf{RegistrationForm}
-    \end{itemize}
-
-    \subsection{Lớp điều khiển (control class)}
-    \begin{itemize}
-      \item \textbf{SignInController}
-      \item \textbf{SystemStatusController}
-      \item \textbf{ClassesController}
-      \item \textbf{UsersController}
-      \item \textbf{SubjectsController}
-      \item \textbf{LectureController}
-      \item \textbf{RegisterController}
-    \end{itemize}
-  
-  \section{Sơ đồ tuần tự}
+\chapter{Sơ đồ tuần tự}
   
   \FloatBarrier
   \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.3]{../pictures/projectdiagrams/sequence/{"Sign In Sequence Diagram"}.jpg}
+    \includegraphics[scale=0.6]{../pictures/projectdiagrams/sequence/{"Sign In Sequence Diagram"}.jpg}
     \label{sequence-diagram-common01}
     \caption{Sơ đồ tuần tự cho use case \textbf{Đăng nhập}}
   \end{figure}
@@ -1353,7 +1321,7 @@
   \FloatBarrier
   \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.5]{../pictures/projectdiagrams/sequence/{"Sign Out Sequence Diagram"}.jpg}
+    \includegraphics[scale=0.7]{../pictures/projectdiagrams/sequence/{"Sign Out Sequence Diagram"}.jpg}
     \label{sequence-diagram-common02}
     \caption{Sơ đồ tuần tự cho use case \textbf{Đăng xuất}}
   \end{figure}
@@ -1362,58 +1330,173 @@
   \FloatBarrier
   \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.3]{../pictures/projectdiagrams/sequence/{"Edit Account Info Sequence Diagram"}.jpg}
+    \includegraphics[scale=0.6]{../pictures/projectdiagrams/sequence/{"Edit Account Info Sequence Diagram"}.jpg}
     \label{sequence-diagram-common03}
     \caption{Sơ đồ tuần tự cho use case \textbf{Sửa thông tin tài khoản}}
   \end{figure}
   \FloatBarrier
 
-  % \FloatBarrier
-  % \begin{figure}[ht]
-  %   \centering
-  %   \includegraphics[scale=0.3]{}
-  %   \label{sequence-diagram-common04}
-  %   \caption{Sơ đồ tuần tự cho use case \textbf{Tìm kiếm môn học}}
-  % \end{figure}
-  % \FloatBarrier
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.6]{../pictures/projectdiagrams/sequence/{"Search Subjects Sequence Diagram"}.jpg}
+    \label{sequence-diagram-common04}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Tìm kiếm môn học}}
+  \end{figure}
+  \FloatBarrier
 
-  % \FloatBarrier
-  % \begin{figure}[ht]
-  %   \centering
-  %   \includegraphics[scale=0.3]{}
-  %   \label{sequence-diagram-common05}
-  %   \caption{Sơ đồ tuần tự cho use case \textbf{Xem thông tin môn học}}
-  % \end{figure}
-  % \FloatBarrier
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"View Subject Info Sequence Diagram"}.jpg}
+    \label{sequence-diagram-common05}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Xem thông tin môn học}}
+  \end{figure}
+  \FloatBarrier
 
-  % \FloatBarrier
-  % \begin{figure}[ht]
-  %   \centering
-  %   \includegraphics[scale=0.3]{}
-  %   \label{sequence-diagram-common06}
-  %   \caption{Sơ đồ tuần tự cho use case \textbf{Tìm kiếm lớp học}}
-  % \end{figure}
-  % \FloatBarrier
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"Search Classes Sequence Diagram"}.jpg}
+    \label{sequence-diagram-common06}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Tìm kiếm lớp học}}
+  \end{figure}
+  \FloatBarrier
 
-  % \FloatBarrier
-  % \begin{figure}[ht]
-  %   \centering
-  %   \includegraphics[scale=0.3]{}
-  %   \label{sequence-diagram-common07}
-  %   \caption{Sơ đồ tuần tự cho use case \textbf{Xem thông tin lớp học}}
-  % \end{figure}
-  % \FloatBarrier
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.3]{../pictures/projectdiagrams/sequence/{"View Class Info Sequence Diagram"}.jpg}
+    \label{sequence-diagram-common07}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Xem thông tin lớp học}}
+  \end{figure}
+  \FloatBarrier
 
-  % \FloatBarrier
-  % \begin{figure}[ht]
-  %   \centering
-  %   \includegraphics[scale=0.3]{}
-  %   \label{sequence-diagram-sa-01}
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{../pictures/projectdiagrams/sequence/{"Open Or Close System For Lecturers Sequence Diagram"}.jpg}
+    \label{sequence-diagram-sa-01}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Đóng/mở hệ thống cho giảng viên}}
+  \end{figure}
+  \FloatBarrier
 
-  % \end{figure}
-  % \FloatBarrier
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{../pictures/projectdiagrams/sequence/{"Open Or Close System For Specialists Sequence Diagram"}.jpg}
+    \label{sequence-diagram-sa-02}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Đóng/mở hệ thống cho chuyên viên}}
+  \end{figure}
+  \FloatBarrier
 
-\chapter{Thiết kế kiến trúc}
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{../pictures/projectdiagrams/sequence/{"Open or Close System For Students Sequence Diagram"}.jpg}
+    \label{sequence-diagram-sa-03}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Đóng/mở hệ thống cho sinh viên}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"Search User Sequence Diagram"}.jpg}
+    \label{sequence-diagram-sa-04}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Tìm kiếm người dùng}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"View User Info Sequence Diagram"}.jpg}
+    \label{sequence-diagram-sa-05}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Xem thông tin người dùng}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"Create Class Sequence Diagram"}.jpg}
+    \label{sequence-diagram-sa-09}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Tạo lớp học mới}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"Edit Class Info Sequence Diagram"}.jpg}
+    \label{sequence-diagram-sa-10}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Sửa thông tin lớp học}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"Delete Class Sequence Diagram"}.jpg}
+    \label{sequence-diagram-sa-11}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Xoá lớp học}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"Select Class Sequence Diagram"}.jpg}
+    \label{sequence-diagram-lec-01}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Nhận lớp học}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"Unselect Class Sequence Diagram"}.jpg}
+    \label{sequence-diagram-lec-02}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Rời lớp học}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"View Selected Class Sequence Diagram"}.jpg}
+    \label{sequence-diagram-lec-03}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Xem danh sách lớp đã nhận}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"Register New Classes Sequence Diagram"}.jpg}
+    \label{sequence-diagram-student-01}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Đăng ký lớp học mới}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"Remove Selected Class Sequence Diagram"}.jpg}
+    \label{sequence-diagram-student-02}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Huỷ đăng ký lớp học}}
+  \end{figure}
+  \FloatBarrier
+
+  \FloatBarrier
+  \begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.4]{../pictures/projectdiagrams/sequence/{"View Selected Classes Sequence Diagram"}.jpg}
+    \label{sequence-diagram-student-03}
+    \caption{Sơ đồ tuần tự cho use case \textbf{Xem danh sách lớp đã đăng ký}}
+  \end{figure}
+  \FloatBarrier
 
 \begin{thebibliography}{9}
   \bibitem{1}
